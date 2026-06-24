@@ -22,7 +22,7 @@ export default function ContactPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: "YOUR_ACCESS_KEY_HERE", // Replace with your free Web3Forms access key
+          access_key: "aca23316-98f7-456d-a267-6ea420275e2a", // Live Web3Forms access key
           name: formData.name,
           email: formData.email,
           message: formData.message,
