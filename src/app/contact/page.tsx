@@ -6,7 +6,6 @@ import Reveal from '@/components/Reveal';
 interface OptionItem {
   id: string;
   name: string;
-  price: number;
   category: 'hardware' | 'software';
 }
 
@@ -15,55 +14,28 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  // Estimator States
+  // Selector States
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
   const [complexity, setComplexity] = useState<'prototype' | 'production' | 'enterprise'>('prototype');
-  const [estimatedCost, setEstimatedCost] = useState({ min: 0, max: 0 });
 
   const featureOptions: OptionItem[] = [
-    { id: 'iot_core', name: 'IoT Core Integration', price: 1500, category: 'hardware' },
-    { id: 'sensors', name: 'Sensor Array Calibration', price: 800, category: 'hardware' },
-    { id: 'pcb', name: 'Custom PCB Layout & Design', price: 1200, category: 'hardware' },
-    { id: 'firmware', name: 'Firmware Programming', price: 1000, category: 'hardware' },
-    { id: 'mobile', name: 'Mobile App (iOS/Android)', price: 2000, category: 'software' },
-    { id: 'cloud', name: 'Cloud Serverless Backend', price: 1500, category: 'software' },
-    { id: 'web', name: 'Web Admin Dashboard', price: 1200, category: 'software' },
-    { id: 'ai', name: 'AI Models & Analytics', price: 1800, category: 'software' },
+    { id: 'iot_core', name: 'IoT Core Integration', category: 'hardware' },
+    { id: 'sensors', name: 'Sensor Array Calibration', category: 'hardware' },
+    { id: 'pcb', name: 'Custom PCB Layout & Design', category: 'hardware' },
+    { id: 'firmware', name: 'Firmware Programming', category: 'hardware' },
+    { id: 'mobile', name: 'Mobile App (iOS/Android)', category: 'software' },
+    { id: 'cloud', name: 'Cloud Serverless Backend', category: 'software' },
+    { id: 'web', name: 'Web Admin Dashboard', category: 'software' },
+    { id: 'ai', name: 'AI Models & Analytics', category: 'software' },
   ];
 
-  // Calculate pricing based on options and complexity
-  useEffect(() => {
-    let basePrice = 0;
-    featureOptions.forEach(opt => {
-      if (selectedFeatures.includes(opt.id)) {
-        basePrice += opt.price;
-      }
-    });
-
-    if (basePrice === 0) {
-      setEstimatedCost({ min: 0, max: 0 });
-      return;
-    }
-
-    let multiplier = 1.0;
-    if (complexity === 'production') multiplier = 1.4;
-    if (complexity === 'enterprise') multiplier = 2.0;
-
-    const total = basePrice * multiplier;
-    setEstimatedCost({
-      min: Math.round(total * 0.9),
-      max: Math.round(total * 1.15)
-    });
-  }, [selectedFeatures, complexity]);
-
-  // Pre-fill message based on calculator selections
+  // Pre-fill message based on selections
   const handleOptionToggle = (featureId: string) => {
     setSelectedFeatures(prev => {
       const updated = prev.includes(featureId)
         ? prev.filter(id => id !== featureId)
         : [...prev, featureId];
 
-      // Auto update form message with formatted requirements
       const selectedNames = featureOptions
         .filter(opt => updated.includes(opt.id))
         .map(opt => opt.name);
@@ -72,7 +44,6 @@ export default function ContactPage() {
         const text = `Project Scope Profile:
 - Selected Modules: ${selectedNames.join(', ')}
 - Target Build Tier: ${complexity.toUpperCase()}
-- Calculated Estimate Range: $${Math.round(updated.reduce((acc, currentId) => acc + (featureOptions.find(o => o.id === currentId)?.price || 0), 0) * (complexity === 'production' ? 1.4 : complexity === 'enterprise' ? 2.0 : 1.0) * 0.9)} - $${Math.round(updated.reduce((acc, currentId) => acc + (featureOptions.find(o => o.id === currentId)?.price || 0), 0) * (complexity === 'production' ? 1.4 : complexity === 'enterprise' ? 2.0 : 1.0) * 1.15)}
 
 Describe additional custom integrations or hardware specifics:
 `;
@@ -96,7 +67,6 @@ Describe additional custom integrations or hardware specifics:
       const text = `Project Scope Profile:
 - Selected Modules: ${selectedNames.join(', ')}
 - Target Build Tier: ${tier.toUpperCase()}
-- Calculated Estimate Range: $${Math.round(selectedFeatures.reduce((acc, currentId) => acc + (featureOptions.find(o => o.id === currentId)?.price || 0), 0) * (tier === 'production' ? 1.4 : tier === 'enterprise' ? 2.0 : 1.0) * 0.9)} - $${Math.round(selectedFeatures.reduce((acc, currentId) => acc + (featureOptions.find(o => o.id === currentId)?.price || 0), 0) * (tier === 'production' ? 1.4 : tier === 'enterprise' ? 2.0 : 1.0) * 1.15)}
 
 Describe additional custom integrations or hardware specifics:
 `;
@@ -122,7 +92,7 @@ Describe additional custom integrations or hardware specifics:
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          subject: "ASRAGEN Website Lead - Configured Quote",
+          subject: "ASRAGEN Website Lead - Configured Scope",
         }),
       });
 
@@ -155,7 +125,7 @@ Describe additional custom integrations or hardware specifics:
           </Reveal>
           <Reveal delay={200}>
             <p className="section-desc" style={{ margin: '0 auto 30px' }}>
-              Select target features and requirements below to generate a budget estimate, and submit your request straight to our engineers.
+              Select target features and requirements below to plan your requirements, and submit your request straight to our engineers.
             </p>
           </Reveal>
         </div>
@@ -171,8 +141,7 @@ Describe additional custom integrations or hardware specifics:
                   className={`calc-option ${selectedFeatures.includes(opt.id) ? 'selected' : ''}`}
                   onClick={() => handleOptionToggle(opt.id)}
                 >
-                  <div style={{ fontWeight: '600', marginBottom: '4px' }}>{opt.name}</div>
-                  <div style={{ color: 'var(--gold)', fontSize: '12px' }}>+${opt.price}</div>
+                  <div style={{ fontWeight: '600' }}>{opt.name}</div>
                 </div>
               ))}
             </div>
@@ -202,19 +171,19 @@ Describe additional custom integrations or hardware specifics:
               </div>
             </div>
 
-            {estimatedCost.max > 0 ? (
+            {selectedFeatures.length > 0 ? (
               <div className="calc-result-pane">
-                <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--text-muted)' }}>Estimated Project Budget Range</span>
-                <h3 style={{ fontSize: '36px', color: 'var(--gold-light)', margin: '8px 0', letterSpacing: '1px' }}>
-                  ${estimatedCost.min.toLocaleString()} - ${estimatedCost.max.toLocaleString()} USD
+                <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--text-muted)' }}>Configured Project Scope</span>
+                <h3 style={{ fontSize: '24px', color: 'var(--gold-light)', margin: '8px 0', letterSpacing: '1px' }}>
+                  {selectedFeatures.length} Module(s) Selected &nbsp;·&nbsp; {complexity.toUpperCase()} Tier
                 </h3>
                 <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
-                  This is a tentative calculation. Final pricing is based on precise component selection and milestones.
+                  These requirements will be attached to your project intake inquiry.
                 </p>
               </div>
             ) : (
               <div className="calc-result-pane">
-                <span style={{ color: 'var(--text-muted)', fontSize: '13px' }}>Select features above to generate live budget calculations.</span>
+                <span style={{ color: 'var(--text-muted)', fontSize: '13px' }}>Select features above to configure your requirements.</span>
               </div>
             )}
           </div>
@@ -273,7 +242,7 @@ Describe additional custom integrations or hardware specifics:
                 className="btn-primary" 
                 style={{ width: '100%', border: 'none', cursor: 'pointer', display: 'block', padding: '18px' }}
               >
-                {isSubmitting ? 'Submitting Specifications...' : 'Send Request & Quote'}
+                {isSubmitting ? 'Submitting Specifications...' : 'Send Request & Specifications'}
               </button>
 
               {submitStatus === 'success' && (
