@@ -1,12 +1,108 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Reveal from '@/components/Reveal';
+
+interface OptionItem {
+  id: string;
+  name: string;
+  price: number;
+  category: 'hardware' | 'software';
+}
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Estimator States
+  const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
+  const [complexity, setComplexity] = useState<'prototype' | 'production' | 'enterprise'>('prototype');
+  const [estimatedCost, setEstimatedCost] = useState({ min: 0, max: 0 });
+
+  const featureOptions: OptionItem[] = [
+    { id: 'iot_core', name: 'IoT Core Integration', price: 1500, category: 'hardware' },
+    { id: 'sensors', name: 'Sensor Array Calibration', price: 800, category: 'hardware' },
+    { id: 'pcb', name: 'Custom PCB Layout & Design', price: 1200, category: 'hardware' },
+    { id: 'firmware', name: 'Firmware Programming', price: 1000, category: 'hardware' },
+    { id: 'mobile', name: 'Mobile App (iOS/Android)', price: 2000, category: 'software' },
+    { id: 'cloud', name: 'Cloud Serverless Backend', price: 1500, category: 'software' },
+    { id: 'web', name: 'Web Admin Dashboard', price: 1200, category: 'software' },
+    { id: 'ai', name: 'AI Models & Analytics', price: 1800, category: 'software' },
+  ];
+
+  // Calculate pricing based on options and complexity
+  useEffect(() => {
+    let basePrice = 0;
+    featureOptions.forEach(opt => {
+      if (selectedFeatures.includes(opt.id)) {
+        basePrice += opt.price;
+      }
+    });
+
+    if (basePrice === 0) {
+      setEstimatedCost({ min: 0, max: 0 });
+      return;
+    }
+
+    let multiplier = 1.0;
+    if (complexity === 'production') multiplier = 1.4;
+    if (complexity === 'enterprise') multiplier = 2.0;
+
+    const total = basePrice * multiplier;
+    setEstimatedCost({
+      min: Math.round(total * 0.9),
+      max: Math.round(total * 1.15)
+    });
+  }, [selectedFeatures, complexity]);
+
+  // Pre-fill message based on calculator selections
+  const handleOptionToggle = (featureId: string) => {
+    setSelectedFeatures(prev => {
+      const updated = prev.includes(featureId)
+        ? prev.filter(id => id !== featureId)
+        : [...prev, featureId];
+
+      // Auto update form message with formatted requirements
+      const selectedNames = featureOptions
+        .filter(opt => updated.includes(opt.id))
+        .map(opt => opt.name);
+
+      if (selectedNames.length > 0) {
+        const text = `Project Scope Profile:
+- Selected Modules: ${selectedNames.join(', ')}
+- Target Build Tier: ${complexity.toUpperCase()}
+- Calculated Estimate Range: $${Math.round(updated.reduce((acc, currentId) => acc + (featureOptions.find(o => o.id === currentId)?.price || 0), 0) * (complexity === 'production' ? 1.4 : complexity === 'enterprise' ? 2.0 : 1.0) * 0.9)} - $${Math.round(updated.reduce((acc, currentId) => acc + (featureOptions.find(o => o.id === currentId)?.price || 0), 0) * (complexity === 'production' ? 1.4 : complexity === 'enterprise' ? 2.0 : 1.0) * 1.15)}
+
+Describe additional custom integrations or hardware specifics:
+`;
+        setFormData(f => ({ ...f, message: text }));
+      } else {
+        setFormData(f => ({ ...f, message: '' }));
+      }
+
+      return updated;
+    });
+  };
+
+  const handleComplexityChange = (tier: 'prototype' | 'production' | 'enterprise') => {
+    setComplexity(tier);
+    
+    const selectedNames = featureOptions
+      .filter(opt => selectedFeatures.includes(opt.id))
+      .map(opt => opt.name);
+
+    if (selectedNames.length > 0) {
+      const text = `Project Scope Profile:
+- Selected Modules: ${selectedNames.join(', ')}
+- Target Build Tier: ${tier.toUpperCase()}
+- Calculated Estimate Range: $${Math.round(selectedFeatures.reduce((acc, currentId) => acc + (featureOptions.find(o => o.id === currentId)?.price || 0), 0) * (tier === 'production' ? 1.4 : tier === 'enterprise' ? 2.0 : 1.0) * 0.9)} - $${Math.round(selectedFeatures.reduce((acc, currentId) => acc + (featureOptions.find(o => o.id === currentId)?.price || 0), 0) * (tier === 'production' ? 1.4 : tier === 'enterprise' ? 2.0 : 1.0) * 1.15)}
+
+Describe additional custom integrations or hardware specifics:
+`;
+      setFormData(f => ({ ...f, message: text }));
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,17 +118,18 @@ export default function ContactPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: "aca23316-98f7-456d-a267-6ea420275e2a", // Live Web3Forms access key
+          access_key: "aca23316-98f7-456d-a267-6ea420275e2a",
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          subject: "New Website Lead - ASRAGEN",
+          subject: "ASRAGEN Website Lead - Configured Quote",
         }),
       });
 
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
+        setSelectedFeatures([]);
       } else {
         setSubmitStatus('error');
       }
@@ -45,29 +142,95 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="cta-section" style={{ minHeight: '100vh', paddingTop: '160px' }} aria-labelledby="cta-title">
-      <div className="cta-inner">
-        <Reveal>
-          <span className="section-tag">Ready to Begin?</span>
-        </Reveal>
-        <Reveal delay={100}>
-          <h2 className="section-title" id="cta-title">
-            Let's Build Something <span>Extraordinary</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={200}>
-          <p className="cta-desc">
-            From smart home systems to enterprise software, we are your end-to-end technology partner. Tell us your vision and we'll engineer the solution.
-          </p>
+    <section className="contact" style={{ minHeight: '100vh', paddingTop: '160px' }} aria-labelledby="contact-title">
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+          <Reveal>
+            <span className="section-tag">Start a Project</span>
+          </Reveal>
+          <Reveal delay={100}>
+            <h2 className="section-title" id="contact-title">
+              Configure Your <span>Solution</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="section-desc" style={{ margin: '0 auto 30px' }}>
+              Select target features and requirements below to generate a budget estimate, and submit your request straight to our engineers.
+            </p>
+          </Reveal>
+        </div>
+
+        {/* INTERACTIVE CALCULATOR */}
+        <Reveal delay={300}>
+          <div className="calculator-card">
+            <div className="calc-section-title">1. Select Target Modules</div>
+            <div className="calc-grid">
+              {featureOptions.map(opt => (
+                <div
+                  key={opt.id}
+                  className={`calc-option ${selectedFeatures.includes(opt.id) ? 'selected' : ''}`}
+                  onClick={() => handleOptionToggle(opt.id)}
+                >
+                  <div style={{ fontWeight: '600', marginBottom: '4px' }}>{opt.name}</div>
+                  <div style={{ color: 'var(--gold)', fontSize: '12px' }}>+${opt.price}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="calc-section-title">2. Select Project Build Tier</div>
+            <div className="calc-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+              <div
+                className={`calc-option ${complexity === 'prototype' ? 'selected' : ''}`}
+                onClick={() => handleComplexityChange('prototype')}
+              >
+                <div style={{ fontWeight: '600' }}>MVP / Prototype</div>
+                <p style={{ fontSize: '11px', opacity: 0.7, marginTop: '4px' }}>Validation & basic proof of concept</p>
+              </div>
+              <div
+                className={`calc-option ${complexity === 'production' ? 'selected' : ''}`}
+                onClick={() => handleComplexityChange('production')}
+              >
+                <div style={{ fontWeight: '600' }}>Production-Ready</div>
+                <p style={{ fontSize: '11px', opacity: 0.7, marginTop: '4px' }}>Industrial casings & cloud compliance</p>
+              </div>
+              <div
+                className={`calc-option ${complexity === 'enterprise' ? 'selected' : ''}`}
+                onClick={() => handleComplexityChange('enterprise')}
+              >
+                <div style={{ fontWeight: '600' }}>Enterprise Scale</div>
+                <p style={{ fontSize: '11px', opacity: 0.7, marginTop: '4px' }}>Redundancies, high load APIs & 24/7 SLAs</p>
+              </div>
+            </div>
+
+            {estimatedCost.max > 0 ? (
+              <div className="calc-result-pane">
+                <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '2px', color: 'var(--text-muted)' }}>Estimated Project Budget Range</span>
+                <h3 style={{ fontSize: '36px', color: 'var(--gold-light)', margin: '8px 0', letterSpacing: '1px' }}>
+                  ${estimatedCost.min.toLocaleString()} - ${estimatedCost.max.toLocaleString()} USD
+                </h3>
+                <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+                  This is a tentative calculation. Final pricing is based on precise component selection and milestones.
+                </p>
+              </div>
+            ) : (
+              <div className="calc-result-pane">
+                <span style={{ color: 'var(--text-muted)', fontSize: '13px' }}>Select features above to generate live budget calculations.</span>
+              </div>
+            )}
+          </div>
         </Reveal>
 
-        <Reveal delay={300}>
+        {/* LEAD SUBMISSION FORM */}
+        <Reveal delay={400}>
           <div className="contact-form-container">
+            <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+              <h3 style={{ fontSize: '20px', color: 'var(--gold-light)', fontWeight: 500 }}>Submit Your Request</h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '4px' }}>Our technical specialists will contact you in under 24 hours.</p>
+            </div>
+            
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label className="form-label" htmlFor="name">
-                  Full Name
-                </label>
+                <label className="form-label" htmlFor="name">Full Name</label>
                 <input
                   type="text"
                   id="name"
@@ -80,9 +243,7 @@ export default function ContactPage() {
               </div>
 
               <div className="form-group">
-                <label className="form-label" htmlFor="email">
-                  Email Address
-                </label>
+                <label className="form-label" htmlFor="email">Email Address</label>
                 <input
                   type="email"
                   id="email"
@@ -95,47 +256,51 @@ export default function ContactPage() {
               </div>
 
               <div className="form-group">
-                <label className="form-label" htmlFor="message">
-                  Project Details
-                </label>
+                <label className="form-label" htmlFor="message">Project Requirements Details</label>
                 <textarea
                   id="message"
                   required
                   className="form-control"
-                  placeholder="Describe your project requirements, goals, and timeline..."
+                  placeholder="Describe your target devices, environments, and desired milestones..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 ></textarea>
               </div>
 
-              <button type="submit" disabled={isSubmitting} className="btn-primary" style={{ width: '100%', border: 'none', cursor: 'pointer' }}>
-                {isSubmitting ? 'Sending Request...' : 'Send Message'}
+              <button 
+                type="submit" 
+                disabled={isSubmitting} 
+                className="btn-primary" 
+                style={{ width: '100%', border: 'none', cursor: 'pointer', display: 'block', padding: '18px' }}
+              >
+                {isSubmitting ? 'Submitting Specifications...' : 'Send Request & Quote'}
               </button>
 
-               {submitStatus === 'success' && (
-                <p style={{ color: 'var(--gold)', marginTop: '20px', fontSize: '14px', letterSpacing: '1px' }}>
-                  Thank you! Your message has been sent successfully. We will get back to you within 24 hours.
+              {submitStatus === 'success' && (
+                <p style={{ color: 'var(--gold)', marginTop: '20px', fontSize: '14px', letterSpacing: '1px', textAlign: 'center' }}>
+                  ✓ Request successfully dispatched! We will review your selections and email you shortly.
                 </p>
               )}
 
               {submitStatus === 'error' && (
-                <p style={{ color: '#ff4a4a', marginTop: '20px', fontSize: '14px', letterSpacing: '1.5px' }}>
-                  Oops! Something went wrong. Please check your network or try again later.
+                <p style={{ color: '#ff4a4a', marginTop: '20px', fontSize: '14px', letterSpacing: '1px', textAlign: 'center' }}>
+                  ✕ Transmission error. Please check your network connection or email hello@asragen.com.
                 </p>
               )}
             </form>
           </div>
         </Reveal>
 
-        <Reveal delay={400}>
+        {/* DIRECT CHANNELS */}
+        <Reveal delay={500}>
           <div className="cta-contact">
             <div className="contact-item">
-              <span className="contact-label">Email</span>
-              <span className="contact-value">hello@asragen.com</span>
+              <span className="contact-label">Direct Intake</span>
+              <span className="contact-value">asragenoff@gmail.com</span>
             </div>
             <div className="contact-item">
-              <span className="contact-label">Website</span>
-              <span className="contact-value">www.asragen.com</span>
+              <span className="contact-label">Engineering Desk</span>
+              <span className="contact-value">hello@asragen.com</span>
             </div>
             <div className="contact-item">
               <span className="contact-label">Response Time</span>
