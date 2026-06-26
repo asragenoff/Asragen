@@ -36,7 +36,7 @@ export default function AboutLeadership() {
       about: "As the Founder and CEO of ASRAGEN, Arun Kumar leads the company's vision of developing next-generation smart technologies that solve real-world challenges. With expertise in Internet of Things (IoT), embedded systems, automation, software engineering, and product innovation, he is committed to creating intelligent solutions that improve efficiency, sustainability, and connectivity across industries.",
       phone: '+91 9965241063',
       email: 'arun1063k@gmail.com',
-      avatar: '/arunkumar.png',
+      avatar: '/arunkumar.jpg',
       stats: {
         num1: '45+',
         label1: 'PROJECTS',
@@ -57,7 +57,7 @@ export default function AboutLeadership() {
       about: "As the Co-Founder of ASRAGEN, Vashanth K oversees business operations, project execution, strategic planning, and customer success. Working closely with the engineering team, he ensures every solution reflects ASRAGEN's commitment to quality, innovation, and reliability.",
       phone: '+91 8220168887',
       email: 'vashanth.tup@gmail.com',
-      avatar: '/vashanth.png',
+      avatar: '/vashanth.jpg',
       stats: {
         num1: '38+',
         label1: 'PROJECTS',
