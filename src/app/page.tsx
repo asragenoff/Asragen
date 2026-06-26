@@ -83,6 +83,9 @@ export default function HomePage() {
 
   return (
     <>
+      <div className="glow-blob glow-1" aria-hidden="true"></div>
+      <div className="glow-blob glow-2" aria-hidden="true"></div>
+      <div className="glow-blob glow-3" aria-hidden="true"></div>
       {/* HERO */}
       <section className="hero" aria-label="Hero">
         <div className="hero-grid-bg" aria-hidden="true"></div>
