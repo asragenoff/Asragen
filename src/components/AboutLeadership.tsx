@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Reveal from './Reveal';
+import arunkumarImg from '../../public/arunkumar.jpg';
+import vashanthImg from '../../public/vashanth.jpg';
 
 interface Leader {
   name: string;
@@ -10,7 +12,7 @@ interface Leader {
   about: string;
   phone: string;
   email: string;
-  avatar: string;
+  avatar: any;
   stats: {
     num1: string;
     label1: string;
@@ -34,7 +36,7 @@ export default function AboutLeadership() {
       about: "As the Founder and CEO of ASRAGEN, Arun Kumar leads the company's vision of developing next-generation smart technologies that solve real-world challenges. With expertise in Internet of Things (IoT), embedded systems, automation, software engineering, and product innovation, he is committed to creating intelligent solutions that improve efficiency, sustainability, and connectivity across industries.",
       phone: '+91 9965241063',
       email: 'arun1063k@gmail.com',
-      avatar: '/arunkumar.jpg',
+      avatar: arunkumarImg,
       stats: {
         num1: '45+',
         label1: 'PROJECTS',
@@ -55,7 +57,7 @@ export default function AboutLeadership() {
       about: "As the Co-Founder of ASRAGEN, Vashanth K oversees business operations, project execution, strategic planning, and customer success. Working closely with the engineering team, he ensures every solution reflects ASRAGEN's commitment to quality, innovation, and reliability.",
       phone: '+91 8220168887',
       email: 'vashanth.tup@gmail.com',
-      avatar: '/vashanth.jpg',
+      avatar: vashanthImg,
       stats: {
         num1: '38+',
         label1: 'PROJECTS',
@@ -86,7 +88,7 @@ export default function AboutLeadership() {
               <div className="profile-header-bg" />
               
               <div className="profile-img-container">
-                <img src={leader.avatar} alt={leader.name} />
+                <img src={leader.avatar.src} alt={leader.name} />
               </div>
               
               <h3 className="profile-name">{leader.name}</h3>
