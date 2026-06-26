@@ -1,5 +1,6 @@
 import React from 'react';
 import Reveal from '@/components/Reveal';
+import AboutLeadership from '@/components/AboutLeadership';
 
 export const metadata = {
   title: 'About ASRAGEN - Built for the Future of Technology',
@@ -96,6 +97,7 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+      <AboutLeadership />
     </section>
   );
 }
