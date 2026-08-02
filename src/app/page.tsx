@@ -4,7 +4,7 @@ import Reveal from '@/components/Reveal';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ASRAGEN | Custom IoT Solutions & Billing Software Development',
+  title: 'ASRAGEN | Smart IoT & Billing Software Solutions',
   description: 'ASRAGEN specializes in end-to-end IoT systems design, industrial automation, AI-driven cloud backends, and custom retail/enterprise billing software.',
   alternates: {
     canonical: '/',
@@ -142,7 +142,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={500}>
             <p className="hero-desc">
-              A technology-driven company pioneering IoT, AI, software, and automation solutions that help businesses embrace the future of intelligent technology.
+              A technology-driven company pioneering custom IoT solutions, AI integrations, and billing software that help businesses embrace the future of intelligent technology.
             </p>
           </Reveal>
           <Reveal delay={600}>

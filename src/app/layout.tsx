@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -32,6 +36,11 @@ export default function RootLayout({
     'url': 'https://asragenoff.github.io/Asragen/',
     'logo': 'https://asragenoff.github.io/Asragen/favicon.ico',
     'description': 'A technology-driven company pioneering IoT, AI, software, and automation solutions.',
+    'sameAs': [
+      'https://x.com/Asragen007',
+      'https://www.linkedin.com/company/asragen/',
+      'https://www.instagram.com/asragen.off?igsh=MWUyb2pnMWtrbWl4Mg=='
+    ],
     'contactPoint': {
       '@type': 'ContactPoint',
       'contactType': 'technical support',

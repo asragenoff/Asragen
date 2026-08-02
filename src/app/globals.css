@@ -1700,4 +1700,15 @@ footer {
   color: var(--text-muted);
 }
 
+.footer-social-link {
+  color: var(--text-secondary);
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.footer-social-link:hover {
+  color: var(--gold) !important;
+}
+
 
