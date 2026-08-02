@@ -88,7 +88,7 @@ export default function AboutLeadership() {
           <Reveal delay={index * 150} key={index}>
             <div className="leader-card" onClick={() => setActiveLeader(leader)}>
               <div className="leader-card-avatar">
-                <img src={leader.avatar.src} alt={leader.name} />
+                <img src={leader.avatar.src} alt={`${leader.name} - ${leader.role} at ASRAGEN`} />
               </div>
               <h3>{leader.name}</h3>
               <p className="role">{leader.role}</p>
@@ -119,7 +119,7 @@ export default function AboutLeadership() {
             <div className="profile-header-bg" />
             
             <div className="profile-img-container">
-              <img src={activeLeader.avatar.src} alt={activeLeader.name} />
+              <img src={activeLeader.avatar.src} alt={`${activeLeader.name} - ${activeLeader.role} at ASRAGEN`} />
             </div>
             
             <h3 className="profile-name">{activeLeader.name}</h3>

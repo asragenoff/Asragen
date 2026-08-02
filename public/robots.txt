@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asragenoff.github.io/Asragen/sitemap.xml

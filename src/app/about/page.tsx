@@ -5,6 +5,9 @@ import AboutLeadership from '@/components/AboutLeadership';
 export const metadata = {
   title: 'About ASRAGEN - Built for the Future of Technology',
   description: 'Learn about ASRAGEN\'s vision, mission, goal, and customer-first approach to building connected hardware and software ecosystems.',
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 export default function AboutPage() {
@@ -75,9 +78,9 @@ export default function AboutPage() {
             <span className="section-tag">Who We Are</span>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="section-title" id="about-title">
+            <h1 className="section-title" id="about-title">
               Built for the <span>Future</span> of Technology
-            </h2>
+            </h1>
           </Reveal>
           <Reveal delay={200}>
             <p className="section-desc">

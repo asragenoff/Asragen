@@ -1,6 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import Reveal from '@/components/Reveal';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'ASRAGEN | Custom IoT Solutions & Billing Software Development',
+  description: 'ASRAGEN specializes in end-to-end IoT systems design, industrial automation, AI-driven cloud backends, and custom retail/enterprise billing software.',
+  alternates: {
+    canonical: '/',
+  },
+};
 
 export default function HomePage() {
   const stats = [
@@ -118,7 +127,12 @@ export default function HomePage() {
             </svg>
           </Reveal>
           <Reveal delay={200}>
-            <h1 className="hero-title">ASRAGEN</h1>
+            <h1 className="hero-title">
+              ASRAGEN
+              <span style={{ position: 'absolute', width: '1px', height: '1px', padding: '0', margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', border: '0' }}>
+                {" - Custom IoT Solutions & Billing Software"}
+              </span>
+            </h1>
           </Reveal>
           <Reveal delay={300}>
             <p className="hero-tagline">Design It &nbsp;·&nbsp; Develop It &nbsp;·&nbsp; Deliver It</p>

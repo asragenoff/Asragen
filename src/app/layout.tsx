@@ -11,9 +11,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://asragenoff.github.io/Asragen'),
   title: 'ASRAGEN - Design It. Develop It. Deliver It.',
   description: 'A technology-driven company pioneering IoT, AI, software, and automation solutions that help businesses embrace the future of intelligent technology.',
   keywords: 'ASRAGEN, IoT Solutions, Smart Automation, Software Development, Web Development, Cloud Solutions, AI Integration, Embedded Systems',
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function RootLayout({
@@ -21,12 +25,30 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    'name': 'ASRAGEN',
+    'url': 'https://asragenoff.github.io/Asragen/',
+    'logo': 'https://asragenoff.github.io/Asragen/favicon.ico',
+    'description': 'A technology-driven company pioneering IoT, AI, software, and automation solutions.',
+    'contactPoint': {
+      '@type': 'ContactPoint',
+      'contactType': 'technical support',
+      'availableLanguage': 'English'
+    }
+  };
+
   return (
     <html lang="en">
       <body>
         <Nav />
         <main>{children}</main>
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   );
