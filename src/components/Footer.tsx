@@ -85,11 +85,11 @@ export default function Footer() {
           <ul className="footer-col-links">
             <li style={{ color: 'var(--text-secondary)' }}>
               <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>Engineering Intake</span>
-              asragenoff@gmail.com
+              {"asragenoff"}{"\u0040"}{"gmail.com"}
             </li>
             <li style={{ color: 'var(--text-secondary)' }}>
               <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>General Inquiries</span>
-              hello@asragen.com
+              {"hello"}{"\u0040"}{"asragen.com"}
             </li>
             <li style={{ color: 'var(--text-secondary)' }}>
               <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>Response Timeline</span>
@@ -103,9 +103,9 @@ export default function Footer() {
       <div className="footer-bottom" style={{ maxWidth: '1200px', margin: '60px auto 0' }}>
         <p className="footer-copy">&copy; {new Date().getFullYear()} ASRAGEN. All rights reserved.</p>
         <div className="footer-legal-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="/contact">Support Desk</a>
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/terms">Terms of Service</Link>
+          <Link href="/contact">Support Desk</Link>
         </div>
       </div>
     </footer>

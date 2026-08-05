@@ -4,7 +4,7 @@ import Reveal from '@/components/Reveal';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ASRAGEN | Smart IoT & Billing Software Solutions',
+  title: 'ASRAGEN | IoT, Billing & Custom Tech Solutions',
   description: 'ASRAGEN specializes in end-to-end IoT systems design, industrial automation, AI-driven cloud backends, and custom retail/enterprise billing software.',
   alternates: {
     canonical: '/',
