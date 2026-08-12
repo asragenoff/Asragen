@@ -185,10 +185,10 @@ export default function HomeClient() {
                     <span style={{ color: 'var(--gold-light)' }}>➔</span>
                     <span>EDGE MCU</span>
                     <span style={{ color: 'var(--gold-light)' }}>➔</span>
-                    <span>CLOUD LAYER</span>
+                    <span>DIGITAL TWIN</span>
                   </div>
                   <div style={{ fontSize: '11px', color: 'var(--tech-green)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', borderTop: '1px solid var(--border)', paddingTop: '14px', marginTop: '14px' }}>
-                    ● SYSTEM ONLINE & SIMULATING
+                    ● SYSTEM ONLINE
                   </div>
                 </div>
               </div>
