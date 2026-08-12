@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import HomeClient from './HomeClient';
 
 export const metadata: Metadata = {
-  title: 'ASRAGEN | IoT, Automation & Digital Engineering',
-  description: 'ASRAGEN engineers IoT products, industrial automation, embedded systems, monitoring platforms and digital solutions for modern businesses.',
+  title: 'ASRAGEN | IoT & Industrial Automation Solutions',
+  description: 'ASRAGEN engineers IoT, embedded systems, industrial automation, energy monitoring and digital twin solutions for modern industries.',
   alternates: {
     canonical: '/',
   },
