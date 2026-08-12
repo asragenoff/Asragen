@@ -140,7 +140,7 @@ export default function HomeClient() {
       <section className="hero" aria-label="Hero">
         <div className="hero-grid-bg" aria-hidden="true"></div>
         <div className="hero-radial" aria-hidden="true"></div>
-        <div className="hero-content" style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '60px', alignItems: 'center', textAlign: 'left' }}>
+        <div className="hero-content">
           
           <div style={{ zIndex: 10 }}>
             <Reveal delay={0}>
