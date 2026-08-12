@@ -164,7 +164,7 @@ Describe additional custom integrations or hardware specifics:
             </div>
 
             <div className="calc-section-title">2. Select Project Build Tier</div>
-            <div className="calc-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+            <div className="calc-grid-three">
               <div
                 className={`calc-option ${complexity === 'prototype' ? 'selected' : ''}`}
                 onClick={() => handleComplexityChange('prototype')}
