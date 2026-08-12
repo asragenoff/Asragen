@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import ContactClient from './ContactClient';
 
 export const metadata: Metadata = {
-  title: 'Contact ASRAGEN | Start Your Tech Project',
-  description: 'Connect with ASRAGEN\'s technical specialists. Schedule a consultation or request a custom quote for industrial IoT systems, smart home automation, and billing software.',
+  title: 'Start an IoT or Automation Project | ASRAGEN',
+  description: 'Connect with ASRAGEN\'s technical specialists. Schedule a consultation or request a custom quote for industrial IoT systems, custom electronics design, and edge automation.',
   alternates: {
     canonical: '/contact',
   },

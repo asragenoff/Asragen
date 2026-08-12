@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import ServicesClient from './ServicesClient';
 
 export const metadata: Metadata = {
-  title: 'Technology Services | IoT, Billing & Software | ASRAGEN',
-  description: 'Explore ASRAGEN\'s technology engineering services: industrial IoT automation, smart energy metering, mobile apps, and custom retail/enterprise billing software.',
+  title: 'IoT & Automation Solutions | ASRAGEN',
+  description: 'Explore ASRAGEN\'s engineering services: industrial IoT automation, custom PCB design, smart energy metering, and enterprise digital platforms.',
   alternates: {
     canonical: '/services',
   },
