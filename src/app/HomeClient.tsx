@@ -231,16 +231,16 @@ export default function HomeClient() {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '11px', fontFamily: 'var(--font-mono)', borderTop: '1px solid var(--border)', paddingTop: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>TEMP</span>
-                    <span style={{ color: 'var(--text-primary)' }}>28.4°C</span>
+                    <span style={{ color: 'var(--text-muted)' }}>PROTOCOL</span>
+                    <span style={{ color: 'var(--text-primary)' }}>MQTT</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>HUMIDITY</span>
-                    <span style={{ color: 'var(--text-primary)' }}>64%</span>
+                    <span style={{ color: 'var(--text-muted)' }}>ENCRYPTION</span>
+                    <span style={{ color: 'var(--text-primary)' }}>TLS READY</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>POWER</span>
-                    <span style={{ color: 'var(--gold-light)' }}>1.24 kW</span>
+                    <span style={{ color: 'var(--text-muted)' }}>DEVICE</span>
+                    <span style={{ color: 'var(--gold-light)' }}>ASRAGEN_CORE_001</span>
                   </div>
                 </div>
               </div>
