@@ -39,17 +39,10 @@ export default function HomeClient() {
   };
 
   const stats = [
-    { num: 'ESP32 / STM32', label: 'Hardware Native' },
-    { num: 'MQTT / REST', label: 'Secure Connectivity' },
-    { num: '24/7 Ready', label: 'Real-time Telemetry' },
-    { num: 'End-to-End', label: 'System Engineering' },
-  ];
-
-  const whyPoints = [
-    { title: 'Hardware + Software', desc: 'End-to-end engineering. We design the physical circuitry and flash the firmware.' },
-    { title: 'Problem First', desc: 'No cookie-cutter templates. Technology designed around your actual operational parameters.' },
-    { title: 'Prototype ➔ Product', desc: 'Taking systems from initial breadboard verification to industrial site integration.' },
-    { title: 'Built to Scale', desc: 'Enterprise ready. Distributed databases, redundant servers, and modular architectures.' },
+    { num: '45+', label: 'Projects / Prototypes' },
+    { num: '4+', label: 'Technology Domains' },
+    { num: 'IoT', label: 'End-to-End' },
+    { num: '24/7', label: 'Monitoring Ready' },
   ];
 
   const buildItems = [
@@ -58,7 +51,7 @@ export default function HomeClient() {
       tag: 'LIVE MONITORING',
       title: 'Smart Monitoring Systems',
       route: 'Sensors ➔ Edge MCU ➔ Cloud ➔ Live Dashboard',
-      desc: 'Real-time telemetry, alerts, and operational diagnostics for machines, factories, and facilities.',
+      desc: 'Real-time monitoring, alerts and diagnostics for connected systems.',
     },
     {
       num: '02',
@@ -72,21 +65,21 @@ export default function HomeClient() {
       tag: 'PROCESS AUTOMATION',
       title: 'Smart Automation',
       route: 'Input Sensors ➔ Control Unit ➔ Actuators ➔ Logic',
-      desc: 'Automate repetitive operations with connected controllers, sensors, and intelligent control systems.',
+      desc: 'Automate repetitive operations with connected controllers, sensors and intelligent control systems.',
     },
     {
       num: '04',
       tag: 'POWER METRICS',
       title: 'Energy Monitoring',
       route: 'Grid Submeters ➔ Modbus Logger ➔ Analytics Panel',
-      desc: 'Track electrical consumption, isolate usage spikes, and optimize facility operating costs.',
+      desc: 'Track electrical consumption, isolate usage spikes and optimize facility operating costs.',
     },
     {
       num: '05',
       tag: 'PCB & FIRMWARE',
       title: 'Connected Products',
       route: 'Schematic ➔ Prototype PCB ➔ Custom Firmware ➔ Case',
-      desc: 'Complete custom hardware prototyping, low-power firmware development, and design.',
+      desc: 'Custom electronics, sensors, PCBs and embedded firmware.',
     },
     {
       num: '06',
@@ -98,21 +91,12 @@ export default function HomeClient() {
   ];
 
   const processSteps = [
-    { step: '01', title: 'DISCOVER', desc: 'We consult on your operational requirements, physical variables, and custom business objectives.' },
-    { step: '02', title: 'DESIGN', desc: 'We design the hardware, software, and user experience around your real operational requirements.' },
-    { step: '03', title: 'PROTOTYPE', desc: 'We build working hardware prototypes, flash the initial code, and test them under simulated conditions.' },
-    { step: '04', title: 'ENGINEER', desc: 'We write robust device firmware, secure server pathways, web dashboard systems, and backend controls.' },
-    { step: '05', title: 'DEPLOY', desc: 'We deploy the completed physical enclosures, calibrate the sensors, and launch the live cloud streams.' },
-    { step: '06', title: 'SCALE', desc: 'We provide ongoing software upgrades, network management, telemetry logs, and long-term technical SLAs.' },
-  ];
-
-  const industriesTeaser = [
-    { name: 'Manufacturing', desc: 'Connect factory machinery, calculate overall equipment effectiveness, and track downtime.' },
-    { name: 'Textile IoT', desc: 'Deploy automated monitoring units on loom systems, track energy usage, and log environmental metrics.', isHighlighted: true },
-    { name: 'Energy', desc: 'Monitor submeter grids, solar panel inverter telemetry, and heavy industrial load shifts.' },
-    { name: 'Smart Buildings', desc: 'Integrate commercial climate systems, lighting controls, security alerts, and utility usage.' },
-    { name: 'Agriculture', desc: 'Collect soil moisture, local weather, and valve control signals for automated smart farming.' },
-    { name: 'Logistics', desc: 'Track fleet coordinate data, cold-chain cargo temp logs, and warehouse inventory sensors.' },
+    { step: '01', title: 'DISCOVER', short: 'Understand the problem.', desc: 'We consult on your operational requirements, physical variables, and custom business objectives.' },
+    { step: '02', title: 'DESIGN', short: 'Architect the system.', desc: 'We design the hardware, software, and user experience around your real operational requirements.' },
+    { step: '03', title: 'PROTOTYPE', short: 'Build the first version.', desc: 'We build working hardware prototypes, flash the initial code, and test them under simulated conditions.' },
+    { step: '04', title: 'ENGINEER', short: 'Turn it into a reliable product.', desc: 'We write robust device firmware, secure server pathways, web dashboard systems, and backend controls.' },
+    { step: '05', title: 'DEPLOY', short: 'Install and integrate.', desc: 'We deploy the completed physical enclosures, calibrate the sensors, and launch the live cloud streams.' },
+    { step: '06', title: 'SCALE', short: 'Monitor, improve and expand.', desc: 'We provide ongoing software upgrades, network management, telemetry logs, and long-term technical SLAs.' },
   ];
 
   return (
@@ -131,25 +115,20 @@ export default function HomeClient() {
             <Reveal delay={0}>
               <div className="hero-badge" style={{ margin: '0 0 20px 0', border: '1px solid var(--border)' }}>
                 <span className="hero-badge-dot" style={{ backgroundColor: 'var(--tech-green)', boxShadow: '0 0 8px var(--tech-green)' }} aria-hidden="true"></span>
-                Intelligent Hardware & Software Engineering
+                TRANSFORMING IDEAS INTO INTELLIGENT SYSTEMS
               </div>
             </Reveal>
             <Reveal delay={150}>
               <h1 className="hero-title" style={{ fontSize: '56px', lineHeight: '1.1', letterSpacing: '-1px', margin: '0 0 16px 0', color: 'var(--text-primary)' }}>
-                BUILD. CONNECT. <span style={{ color: 'var(--gold)' }}>AUTOMATE.</span>
+                BUILD.<br />CONNECT.<br /><span style={{ color: 'var(--gold)' }}>AUTOMATE.</span>
               </h1>
             </Reveal>
             <Reveal delay={300}>
-              <p className="hero-tagline" style={{ fontSize: '20px', letterSpacing: '0.5px', color: 'var(--gold-light)', margin: '0 0 24px 0', textTransform: 'none', fontWeight: 400 }}>
-                Engineering intelligent systems for the real world.
+              <p className="hero-tagline" style={{ fontSize: '18px', color: 'var(--text-secondary)', margin: '0 0 36px 0', textTransform: 'none', fontWeight: 300, lineHeight: '1.6' }}>
+                Engineering intelligent IoT and automation systems for the real world.
               </p>
             </Reveal>
             <Reveal delay={450}>
-              <p className="hero-desc" style={{ fontSize: '15px', color: 'var(--text-secondary)', lineHeight: '1.8', maxWidth: '520px', margin: '0 0 36px 0' }}>
-                From physical edge devices and custom firmware to real-time digital twins and cloud platforms. ASRAGEN turns hardware concepts into deployable technology.
-              </p>
-            </Reveal>
-            <Reveal delay={600}>
               <div className="hero-actions" style={{ display: 'flex', gap: '16px', margin: '0 0 48px 0' }}>
                 <Link href="/services" className="btn-primary">
                   Explore Solutions
@@ -159,12 +138,12 @@ export default function HomeClient() {
                 </Link>
               </div>
             </Reveal>
-            <Reveal delay={750}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px', borderTop: '1px solid var(--border)', paddingTop: '28px' }}>
+            <Reveal delay={600}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', borderTop: '1px solid var(--border)', paddingTop: '28px' }}>
                 {stats.map((stat, i) => (
                   <div key={i} style={{ display: 'flex', flexDirection: 'column' }}>
                     <span style={{ fontSize: '18px', fontWeight: 700, color: 'var(--gold-light)', fontFamily: 'var(--font-serif)' }}>{stat.num}</span>
-                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '4px' }}>{stat.label}</span>
+                    <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '4px' }}>{stat.label}</span>
                   </div>
                 ))}
               </div>
@@ -176,8 +155,8 @@ export default function HomeClient() {
             <Reveal delay={400}>
               <div style={{ background: 'rgba(15, 15, 15, 0.45)', border: '1px solid var(--border-bright)', borderRadius: '24px', padding: '32px', width: '100%', maxWidth: '420px', backdropFilter: 'blur(20px)', boxShadow: 'var(--glow)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border)', paddingBottom: '14px', marginBottom: '20px', fontSize: '11px', fontFamily: 'var(--font-mono)' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>LIVE TELEMETRY NODE</span>
-                  <span style={{ color: 'var(--tech-green)', fontWeight: 600 }}>● MQTT CONNECTED</span>
+                  <span style={{ color: 'var(--text-muted)' }}>ASRAGEN CORE™</span>
+                  <span style={{ color: 'var(--tech-green)', fontWeight: 600 }}>● SYSTEM ONLINE</span>
                 </div>
                 
                 {/* SVG diagram */}
@@ -206,12 +185,16 @@ export default function HomeClient() {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '11px', fontFamily: 'var(--font-mono)', borderTop: '1px solid var(--border)', paddingTop: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>Security Check</span>
-                    <span style={{ color: 'var(--tech-green)' }}>TLS-Active</span>
+                    <span style={{ color: 'var(--text-muted)' }}>TEMP</span>
+                    <span style={{ color: 'var(--text-primary)' }}>28.4°C</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>Packet Status</span>
-                    <span style={{ color: 'var(--text-primary)' }}>Streaming 200ms</span>
+                    <span style={{ color: 'var(--text-muted)' }}>HUMIDITY</span>
+                    <span style={{ color: 'var(--text-primary)' }}>64%</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <span style={{ color: 'var(--text-muted)' }}>POWER</span>
+                    <span style={{ color: 'var(--gold-light)' }}>1.24 kW</span>
                   </div>
                 </div>
               </div>
@@ -221,34 +204,7 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 02 WHY ASRAGEN */}
-      <section className="values" aria-labelledby="why-asragen-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
-        <div className="values-inner">
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <Reveal>
-              <span className="section-tag">Value Proposition</span>
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 className="section-title" id="why-asragen-title">
-                Why <span>ASRAGEN</span>
-              </h2>
-            </Reveal>
-          </div>
-
-          <div className="values-grid" role="list" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
-            {whyPoints.map((pt, i) => (
-              <Reveal delay={i * 100} key={i}>
-                <div className="value-card" role="listitem" style={{ height: '100%', padding: '30px 24px' }}>
-                  <h4 style={{ fontSize: '18px', color: 'var(--gold-light)', marginBottom: '8px' }}>{pt.title}</h4>
-                  <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{pt.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 03 WHAT WE BUILD */}
+      {/* 02 WHAT WE BUILD (COMPACT 2x3 INTERACTIVE GRID) */}
       <section className="build-section" aria-labelledby="build-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <Reveal>
@@ -290,45 +246,55 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 04 ASRAGEN CORE™ DIGITAL TWIN (Visually Dominant Section) */}
+      {/* 03 ASRAGEN CORE™ DIGITAL TWIN (Visually Dominant Centerpiece) */}
       <section className="twin-section" aria-labelledby="twin-title" style={{ padding: '100px 0', borderTop: '1px solid var(--border)' }}>
         <div className="twin-grid">
           <div>
             <Reveal>
-              <span className="section-tag">Interactive Demonstration</span>
+              <span className="section-tag">Platform Hub</span>
             </Reveal>
             <Reveal delay={100}>
-              <h2 className="section-title" id="twin-title" style={{ textAlign: 'left', margin: '12px 0 24px' }}>
-                ASRAGEN Core™ <span>Twin</span>
+              <h2 className="section-title" id="twin-title" style={{ textAlign: 'left', margin: '12px 0 16px' }}>
+                ASRAGEN <span>Core™</span>
               </h2>
+            </Reveal>
+            <Reveal delay={150}>
+              <h3 style={{ fontSize: '20px', fontWeight: 500, color: 'var(--gold-light)', marginBottom: '16px', fontFamily: 'var(--font-sans)' }}>
+                See Your Physical World Digitally.
+              </h3>
             </Reveal>
             <Reveal delay={200}>
               <p className="section-desc" style={{ textAlign: 'left', maxWidth: '100%', marginBottom: '24px' }}>
-                This dashboard demonstrates how your physical hardware metrics would interface inside ASRAGEN Core™. Try toggling connection states and control signals below to test the simulated telemetry updates.
+                Monitor devices, visualize telemetry and control connected systems through one intelligent platform. Toggle simulation inputs below to test the active telemetry updates.
               </p>
             </Reveal>
             <Reveal delay={300}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border)', borderRadius: '14px', padding: '20px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>Dashboard State:</span>
-                  <span style={{ color: 'var(--gold)', fontWeight: 600 }}>SIMULATION MODE</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>CONNECTION MODE:</span>
+                  <span style={{ color: 'var(--gold)', fontWeight: 600 }}>SIMULATION</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>Connection Link:</span>
-                  <span style={{ color: isOnline ? 'var(--tech-green)' : '#f87171', fontWeight: 600 }}>
-                    {isOnline ? 'Active (Simulated)' : 'Offline'}
-                  </span>
+                  <span style={{ color: 'var(--text-secondary)' }}>PROTOCOL:</span>
+                  <span style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>MQTT</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>Demonstration SKU:</span>
-                  <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-primary)' }}>Demo v2.4.1</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>SECURITY:</span>
+                  <span style={{ color: 'var(--tech-green)', fontWeight: 600 }}>TLS READY</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
+                  <span style={{ color: 'var(--text-secondary)' }}>FIRMWARE:</span>
+                  <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-primary)' }}>DEMO v2.4.1</span>
+                </div>
+                <div style={{ borderTop: '1px solid var(--border)', paddingTop: '10px', fontSize: '11px', color: 'var(--text-muted)', textAlign: 'center', fontStyle: 'italic' }}>
+                  Interactive Simulation · No physical device connected
                 </div>
               </div>
             </Reveal>
           </div>
 
           <Reveal delay={200}>
-            <div className="twin-control-panel">
+            <div className="twin-control-panel" style={{ border: '1px solid var(--border-bright)' }}>
               <div className="panel-header">
                 <span className="panel-title">DEVICE OVERVIEW</span>
                 <div className="status-dot-wrap">
@@ -390,7 +356,7 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 05 HOW IT CONNECTS */}
+      {/* 04 HOW IT CONNECTS (Workflow & Animation) */}
       <section className="why" aria-labelledby="arch-title" style={{ background: 'rgba(5, 5, 5, 0.4)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '80px 0' }}>
         <div className="why-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div className="why-header" style={{ marginBottom: '60px' }}>
@@ -399,7 +365,7 @@ export default function HomeClient() {
             </Reveal>
             <Reveal delay={100}>
               <h2 className="section-title" id="arch-title">
-                From Device to <span>Intelligence</span>
+                How It <span>Connects</span>
               </h2>
             </Reveal>
             <Reveal delay={200}>
@@ -434,8 +400,57 @@ export default function HomeClient() {
         </div>
       </section>
 
+      {/* 05 REAL PROJECT / CASE STUDY */}
+      <section className="why" aria-labelledby="project-title" style={{ padding: '80px 0' }}>
+        <div className="why-inner" style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <Reveal>
+              <span className="section-tag">Case Studies</span>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="section-title" id="project-title" style={{ margin: '12px 0' }}>
+                Engineered in the <span>Real World</span>
+              </h2>
+            </Reveal>
+          </div>
+
+          <Reveal>
+            <div style={{ background: 'var(--glass-bg)', border: '1px solid var(--border)', borderRadius: '24px', padding: '40px', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '40px', alignItems: 'center' }} className="responsive-grid-project">
+              <div>
+                <span style={{ fontSize: '11px', color: 'var(--gold)', fontFamily: 'var(--font-mono)', letterSpacing: '1px', fontWeight: 600 }}>FEATURED PROJECT</span>
+                <h3 style={{ fontSize: '24px', fontWeight: 600, color: 'var(--text-primary)', margin: '12px 0 16px' }}>Smart Machine Monitoring</h3>
+                
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <div>
+                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', fontWeight: 600 }}>Problem</span>
+                    <p style={{ fontSize: '14px', color: 'var(--text-secondary)', fontWeight: 300 }}>Machine operators lack real-time visibility into operating conditions and downtime cycles.</p>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', fontWeight: 600 }}>ASRAGEN Solution</span>
+                    <p style={{ fontSize: '14px', color: 'var(--text-secondary)', fontWeight: 300 }}>Deployed ESP32 edge modules, connected vibration sensors, and piped telemetry via MQTT to a live cloud twin dashboard.</p>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', fontWeight: 600 }}>Result</span>
+                    <p style={{ fontSize: '14px', color: 'var(--tech-green)', fontWeight: 500 }}>● Active remote diagnostics, automated alerts, and 98% tracking visibility.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ background: 'rgba(0, 0, 0, 0.4)', border: '1px solid var(--border)', borderRadius: '16px', padding: '24px', textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <span style={{ color: 'var(--tech-green)', fontWeight: 600, fontSize: '11px', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '12px' }}>● SYSTEM RUNNING</span>
+                <div style={{ fontSize: '32px', fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-serif)' }}>99.8%</div>
+                <div style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '1px', textTransform: 'uppercase', marginTop: '4px' }}>OPERATIONAL UPTIME</div>
+                <div style={{ borderTop: '1px solid var(--border)', marginTop: '20px', paddingTop: '16px', fontSize: '12px', color: 'var(--text-secondary)', fontStyle: 'italic' }}>
+                  "Integrated system live logs."
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* 06 INDUSTRIES */}
-      <section className="why" aria-labelledby="ind-title" style={{ padding: '80px 0', borderBottom: '1px solid var(--border)' }}>
+      <section className="why" aria-labelledby="ind-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="why-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <Reveal>
@@ -521,10 +536,13 @@ export default function HomeClient() {
               <span style={{ fontSize: '36px', fontFamily: 'var(--font-serif)', color: 'rgba(212, 175, 55, 0.15)', fontWeight: 700, display: 'block', marginBottom: '8px' }}>
                 {processSteps[activeStep].step}
               </span>
-              <h4 style={{ fontSize: '18px', color: 'var(--gold-light)', fontWeight: 600, marginBottom: '12px' }}>
+              <h4 style={{ fontSize: '18px', color: 'var(--gold-light)', fontWeight: 600, marginBottom: '8px' }}>
                 {processSteps[activeStep].title}
               </h4>
-              <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6', fontWeight: 300 }}>
+              <h5 style={{ fontSize: '14px', color: 'var(--gold)', fontWeight: 400, marginBottom: '12px', fontFamily: 'var(--font-sans)' }}>
+                {processSteps[activeStep].short}
+              </h5>
+              <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6', fontWeight: 300 }}>
                 {processSteps[activeStep].desc}
               </p>
             </div>
@@ -550,8 +568,8 @@ export default function HomeClient() {
             {[
               { category: 'HARDWARE', techs: ['ESP32', 'STM32', 'Arduino', 'Raspberry Pi'] },
               { category: 'CONNECTIVITY', techs: ['MQTT', 'REST APIs', 'Wi-Fi Protocols', 'Bluetooth / BLE'] },
-              { category: 'BACKEND', techs: ['Python', 'Node.js', 'PostgreSQL', 'SupaBase DB'] },
-              { category: 'APPLICATIONS', techs: ['React', 'Next.js UI', 'Flutter Mobile'] },
+              { category: 'SOFTWARE', techs: ['React', 'Next.js UI', 'Flutter Mobile', 'Python', 'Node.js'] },
+              { category: 'DATA & CLOUD', techs: ['PostgreSQL', 'SupaBase DB', 'Docker Configs', 'Cloud Hosting'] },
             ].map((stack, i) => (
               <Reveal delay={i * 100} key={i}>
                 <div style={{ background: 'var(--glass-bg)', border: '1px solid var(--border)', borderRadius: '16px', padding: '24px' }}>
@@ -576,16 +594,16 @@ export default function HomeClient() {
       <section className="cta-section" aria-labelledby="cta-title" style={{ padding: '100px 0', borderTop: '1px solid var(--border)' }}>
         <div className="cta-inner">
           <Reveal>
-            <span className="section-tag">HAVE A PROBLEM WORTH AUTOMATING?</span>
+            <span className="section-tag">Have a Problem Worth Automating?</span>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="section-title" id="cta-title">
-              Let's Build Something <span>Extraordinary</span>
+              LET'S <span>AUTOMATE IT.</span>
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="cta-desc">
-              Tell us what you're trying to build and we'll engineer the system.
+              Tell us what you're trying to build, monitor or automate.
             </p>
           </Reveal>
           <Reveal delay={300}>
