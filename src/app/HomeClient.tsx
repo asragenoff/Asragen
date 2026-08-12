@@ -175,29 +175,21 @@ export default function HomeClient() {
               <div className="hero-device-preview" aria-label="IoT system preview">
                 <div className="hero-device-header">
                   <span>ASRAGEN CORE™</span>
-                  <span className="hero-device-status">
-                    <i /> SIMULATION
+                  <span className="hero-device-status" style={{ color: 'var(--tech-green)' }}>
+                    <i style={{ backgroundColor: 'var(--tech-green)', boxShadow: '0 0 8px var(--tech-green)' }} /> DEVICE NETWORK ACTIVE
                   </span>
                 </div>
-                <div className="hero-device-grid">
-                  <div>
-                    <strong>{temp}°C</strong>
-                    <span>Temperature</span>
+                <div style={{ padding: '20px 10px 10px', textAlign: 'center', fontFamily: 'var(--font-mono)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '10px', color: 'var(--text-secondary)', marginBottom: '14px' }}>
+                    <span>SENSORS</span>
+                    <span style={{ color: 'var(--gold-light)' }}>➔</span>
+                    <span>EDGE MCU</span>
+                    <span style={{ color: 'var(--gold-light)' }}>➔</span>
+                    <span>CLOUD LAYER</span>
                   </div>
-                  <div>
-                    <strong>{humidity}%</strong>
-                    <span>Humidity</span>
+                  <div style={{ fontSize: '11px', color: 'var(--tech-green)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', borderTop: '1px solid var(--border)', paddingTop: '14px', marginTop: '14px' }}>
+                    ● SYSTEM ONLINE & SIMULATING
                   </div>
-                  <div>
-                    <strong>{power} kW</strong>
-                    <span>Power</span>
-                  </div>
-                </div>
-                <div className="hero-device-line">
-                  <span />
-                  <span />
-                  <span />
-                  <span />
                 </div>
               </div>
             </Reveal>
