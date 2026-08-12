@@ -20,11 +20,11 @@ export default function Footer() {
             </svg>
             <div>
               <div className="footer-logo-text">ASRAGEN</div>
-              <div className="footer-tagline">Design It &nbsp;·&nbsp; Develop It &nbsp;·&nbsp; Deliver It</div>
+              <div className="footer-tagline">BUILD. CONNECT. AUTOMATE.</div>
             </div>
           </div>
           <p className="footer-desc">
-            A technology-driven company pioneering intelligent IoT, automation, AI software, and custom embedded systems configurations for modern industries.
+            A technology-driven company pioneering intelligent IoT, automation, AI software, and custom embedded systems for modern industries.
           </p>
           <div className="footer-socials" style={{ display: 'flex', gap: '16px', marginTop: '20px' }}>
             <a 
@@ -73,15 +73,15 @@ export default function Footer() {
           <ul className="footer-col-links">
             <li><Link href="/">Home</Link></li>
             <li><Link href="/about">About Us</Link></li>
-            <li><Link href="/services">Services Console</Link></li>
-            <li><Link href="/industries">Industries Spec</Link></li>
-            <li><Link href="/contact">Configure Project</Link></li>
+            <li><Link href="/services">Services</Link></li>
+            <li><Link href="/industries">Industries</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
           </ul>
         </div>
 
         {/* Contact Column */}
         <div>
-          <h4 className="footer-col-title">Direct Channels</h4>
+          <h4 className="footer-col-title">Get in Touch</h4>
           <ul className="footer-col-links">
             <li style={{ color: 'var(--text-secondary)' }}>
               <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>Engineering Intake</span>

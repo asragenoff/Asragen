@@ -33,7 +33,7 @@ export default function AboutLeadership() {
   const leaders: Leader[] = [
     {
       name: 'Arunkumar S',
-      role: 'Founder & Chief Executive Officer (CEO)',
+      role: 'Founder / Technology & IoT',
       quote: 'Visionary behind ASRAGEN, dedicated to transforming industries through intelligent IoT, automation, AI-powered technologies, and innovative digital solutions.',
       about: "As the Founder and CEO of ASRAGEN, Arun Kumar leads the company's vision of developing next-generation smart technologies that solve real-world challenges. With expertise in Internet of Things (IoT), embedded systems, automation, software engineering, and product innovation, he is committed to creating intelligent solutions that improve efficiency, sustainability, and connectivity across industries.",
       phone: '+91 9965241063',
@@ -54,7 +54,7 @@ export default function AboutLeadership() {
     },
     {
       name: 'Vashanth K',
-      role: 'Co-Founder & Chief Operating Officer (COO)',
+      role: 'Co-Founder / Software & Digital Systems',
       quote: 'Driving operational excellence and transforming innovative ideas into reliable technology solutions.',
       about: "As the Co-Founder of ASRAGEN, Vashanth K oversees business operations, project execution, strategic planning, and customer success. Working closely with the engineering team, he ensures every solution reflects ASRAGEN's commitment to quality, innovation, and reliability.",
       phone: '+91 8220168887',
@@ -78,7 +78,19 @@ export default function AboutLeadership() {
   return (
     <div className="leaders-section">
       <Reveal>
-        <h2 className="leaders-title">
+        <div style={{ textAlign: 'center', marginBottom: '60px', maxWidth: '700px', margin: '0 auto 60px' }}>
+          <span className="section-tag">Why ASRAGEN Exists</span>
+          <h2 className="section-title" style={{ margin: '12px 0 20px' }}>
+            Bridging the <span>Physical</span> & Digital
+          </h2>
+          <p className="section-desc" style={{ maxWidth: '100%' }}>
+            Technology shouldn't exist only inside screens. It should interact with the physical world. ASRAGEN was founded to bridge the gap between hardware edge nodes, cloud software, and real-world automation.
+          </p>
+        </div>
+      </Reveal>
+
+      <Reveal>
+        <h2 className="leaders-title" style={{ fontSize: '24px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '32px' }}>
           Meet Our <span>Leadership</span>
         </h2>
       </Reveal>

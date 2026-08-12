@@ -10,7 +10,14 @@ interface OptionItem {
 }
 
 export default function ContactClient() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    budget: 'under_5k',
+    timeline: '1_3_months',
+    message: ''
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -91,6 +98,9 @@ Describe additional custom integrations or hardware specifics:
           access_key: "aca23316-98f7-456d-a267-6ea420275e2a",
           name: formData.name,
           email: formData.email,
+          company: formData.company,
+          budget: formData.budget,
+          timeline: formData.timeline,
           message: formData.message,
           subject: "ASRAGEN Website Lead - Configured Scope",
         }),
@@ -98,7 +108,14 @@ Describe additional custom integrations or hardware specifics:
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          budget: 'under_5k',
+          timeline: '1_3_months',
+          message: ''
+        });
         setSelectedFeatures([]);
       } else {
         setSubmitStatus('error');
@@ -193,7 +210,7 @@ Describe additional custom integrations or hardware specifics:
         <Reveal delay={400}>
           <div className="contact-form-container">
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-              <h3 style={{ fontSize: '20px', color: 'var(--gold-light)', fontWeight: 500 }}>Submit Your Request</h3>
+              <h3 style={{ fontSize: '20px', color: 'var(--gold-light)', fontWeight: 500 }}>Submit Your Project Brief</h3>
               <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginTop: '4px' }}>Our technical specialists will contact you in under 24 hours.</p>
             </div>
             
@@ -225,6 +242,52 @@ Describe additional custom integrations or hardware specifics:
               </div>
 
               <div className="form-group">
+                <label className="form-label" htmlFor="company">Company / Organization</label>
+                <input
+                  type="text"
+                  id="company"
+                  className="form-control"
+                  placeholder="ACME Industries"
+                  value={formData.company}
+                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                />
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                <div className="form-group">
+                  <label className="form-label" htmlFor="budget">Budget Range</label>
+                  <select
+                    id="budget"
+                    className="form-control"
+                    value={formData.budget}
+                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                    style={{ background: 'var(--black)', color: 'var(--text-primary)' }}
+                  >
+                    <option value="under_5k">Under $5k</option>
+                    <option value="5k_10k">$5k - $10k</option>
+                    <option value="10k_25k">$10k - $25k</option>
+                    <option value="25k_plus">$25k+</option>
+                  </select>
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label" htmlFor="timeline">Timeline</label>
+                  <select
+                    id="timeline"
+                    className="form-control"
+                    value={formData.timeline}
+                    onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                    style={{ background: 'var(--black)', color: 'var(--text-primary)' }}
+                  >
+                    <option value="under_1_month">Under 1 Month</option>
+                    <option value="1_3_months">1 - 3 Months</option>
+                    <option value="3_6_months">3 - 6 Months</option>
+                    <option value="flexible">Flexible</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="form-group">
                 <label className="form-label" htmlFor="message">Project Requirements Details</label>
                 <textarea
                   id="message"
@@ -242,7 +305,7 @@ Describe additional custom integrations or hardware specifics:
                 className="btn-primary" 
                 style={{ width: '100%', border: 'none', cursor: 'pointer', display: 'block', padding: '18px' }}
               >
-                {isSubmitting ? 'Submitting Specifications...' : 'Send Request & Specifications'}
+                {isSubmitting ? 'Submitting Brief...' : 'Send Project Brief ➔'}
               </button>
 
               {submitStatus === 'success' && (
