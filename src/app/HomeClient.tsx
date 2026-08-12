@@ -39,7 +39,7 @@ export default function HomeClient() {
   };
 
   const stats = [
-    { num: '45+', label: 'Projects / Prototypes' },
+    { num: '45+', label: 'Projects & Prototypes' },
     { num: '4+', label: 'Technology Domains' },
     { num: 'IoT', label: 'End-to-End' },
     { num: '24/7', label: 'Monitoring Ready' },
@@ -352,7 +352,7 @@ export default function HomeClient() {
             </Reveal>
             <Reveal delay={200}>
               <p className="section-desc" style={{ textAlign: 'left', maxWidth: '100%', marginBottom: '24px' }}>
-                Interact with the simulated system and see telemetry respond in real time. Monitor devices, visualize telemetry and control connected systems through one intelligent platform. Toggle simulation inputs below to test the active telemetry updates.
+                Interact with a simulated connected system, monitor live telemetry and test device controls in real time.
               </p>
             </Reveal>
             <Reveal delay={300}>
@@ -414,7 +414,10 @@ export default function HomeClient() {
                 )}
               </div>
 
-              <div className="panel-controls">
+              <div style={{ fontSize: '9px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', letterSpacing: '1px', marginTop: '16px', textTransform: 'uppercase' }}>
+                Simulation Controls
+              </div>
+              <div className="panel-controls" style={{ marginTop: '8px' }}>
                 <button 
                   className={`control-btn ${isOnline ? 'active' : ''}`}
                   onClick={() => setIsOnline(!isOnline)}
@@ -450,7 +453,7 @@ export default function HomeClient() {
             </Reveal>
             <Reveal delay={200}>
               <p className="section-desc">
-                An integrated data pipe engineered to move physical sensor metrics directly into cloud analytics pipelines.
+                An integrated data pipeline that moves physical sensor data from the edge into monitoring, analytics and digital twin systems.
               </p>
             </Reveal>
           </div>
