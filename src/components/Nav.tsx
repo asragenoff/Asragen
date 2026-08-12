@@ -1,12 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   const links = [
     { label: 'Solutions', path: '/services' },
@@ -80,12 +91,11 @@ export default function Nav() {
               </Link>
             </li>
           ))}
-          <li style={{ marginTop: '24px' }}>
+          <li className="mobile-cta-item">
             <Link 
               href="/contact" 
               onClick={() => setIsOpen(false)} 
-              className="nav-cta" 
-              style={{ display: 'block', textAlign: 'center', width: '100%' }}
+              className="nav-cta"
             >
               Start a Project ➔
             </Link>

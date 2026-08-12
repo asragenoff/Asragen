@@ -39,10 +39,17 @@ export default function HomeClient() {
   };
 
   const stats = [
-    { num: '45+', label: 'Projects / Prototypes' },
-    { num: '4+', label: 'Technology Domains' },
+    { num: '45+', label: 'Projects Built' },
+    { num: '4+', label: 'Tech Domains' },
     { num: 'IoT', label: 'End-to-End' },
     { num: '24/7', label: 'Monitoring Ready' },
+  ];
+
+  const whyPoints = [
+    { title: 'Hardware + Software', desc: 'End-to-end engineering. We design the physical circuitry and flash the firmware.' },
+    { title: 'Problem First', desc: 'No cookie-cutter templates. Technology designed around your actual operational parameters.' },
+    { title: 'Prototype ➔ Product', desc: 'Taking systems from initial breadboard verification to industrial site integration.' },
+    { title: 'Built to Scale', desc: 'Enterprise ready. Distributed databases, redundant servers, and modular architectures.' },
   ];
 
   const buildItems = [
@@ -91,12 +98,36 @@ export default function HomeClient() {
   ];
 
   const processSteps = [
-    { step: '01', title: 'DISCOVER', short: 'Understand the problem.', desc: 'We consult on your operational requirements, physical variables, and custom business objectives.' },
-    { step: '02', title: 'DESIGN', short: 'Architect the system.', desc: 'We design the hardware, software, and user experience around your real operational requirements.' },
-    { step: '03', title: 'PROTOTYPE', short: 'Build the first version.', desc: 'We build working hardware prototypes, flash the initial code, and test them under simulated conditions.' },
-    { step: '04', title: 'ENGINEER', short: 'Turn it into a reliable product.', desc: 'We write robust device firmware, secure server pathways, web dashboard systems, and backend controls.' },
-    { step: '05', title: 'DEPLOY', short: 'Install and integrate.', desc: 'We deploy the completed physical enclosures, calibrate the sensors, and launch the live cloud streams.' },
-    { step: '06', title: 'SCALE', short: 'Monitor, improve and expand.', desc: 'We provide ongoing software upgrades, network management, telemetry logs, and long-term technical SLAs.' },
+    {
+      step: '01',
+      title: 'Discover',
+      desc: 'Understand the problem, environment and requirements.',
+    },
+    {
+      step: '02',
+      title: 'Design',
+      desc: 'Architect the hardware, software and user experience.',
+    },
+    {
+      step: '03',
+      title: 'Prototype',
+      desc: 'Build and validate the first working system.',
+    },
+    {
+      step: '04',
+      title: 'Engineer',
+      desc: 'Turn the prototype into a reliable product.',
+    },
+    {
+      step: '05',
+      title: 'Deploy',
+      desc: 'Integrate the system into the real environment.',
+    },
+    {
+      step: '06',
+      title: 'Scale',
+      desc: 'Monitor, improve and expand the solution.',
+    },
   ];
 
   return (
@@ -106,14 +137,14 @@ export default function HomeClient() {
       <div className="glow-blob glow-3" aria-hidden="true"></div>
 
       {/* 01 HERO */}
-      <section className="hero" aria-label="Hero" style={{ paddingTop: '180px', paddingBottom: '80px' }}>
+      <section className="hero" aria-label="Hero">
         <div className="hero-grid-bg" aria-hidden="true"></div>
         <div className="hero-radial" aria-hidden="true"></div>
         <div className="hero-content" style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '60px', alignItems: 'center', textAlign: 'left' }}>
           
           <div style={{ zIndex: 10 }}>
             <Reveal delay={0}>
-              <div className="hero-badge" style={{ margin: '0 0 20px 0', border: '1px solid var(--border)' }}>
+              <div className="hero-badge">
                 <span className="hero-badge-dot" style={{ backgroundColor: 'var(--tech-green)', boxShadow: '0 0 8px var(--tech-green)' }} aria-hidden="true"></span>
                 TRANSFORMING IDEAS INTO INTELLIGENT SYSTEMS
               </div>
@@ -124,26 +155,64 @@ export default function HomeClient() {
               </h1>
             </Reveal>
             <Reveal delay={300}>
-              <p className="hero-tagline" style={{ fontSize: '18px', color: 'var(--text-secondary)', margin: '0 0 36px 0', textTransform: 'none', fontWeight: 300, lineHeight: '1.6' }}>
+              <p className="hero-tagline" style={{ fontSize: '18px', color: 'var(--text-secondary)', margin: '0 0 24px 0', textTransform: 'none', fontWeight: 300, lineHeight: '1.6' }}>
                 Engineering intelligent IoT and automation systems for the real world.
               </p>
             </Reveal>
             <Reveal delay={450}>
-              <div className="hero-actions" style={{ display: 'flex', gap: '16px', margin: '0 0 48px 0' }}>
+              <p className="hero-desc">
+                Engineering intelligent IoT and automation systems for the real world — from connected devices to digital platforms.
+              </p>
+            </Reveal>
+            <Reveal delay={600}>
+              <div className="hero-actions" style={{ display: 'flex', gap: '16px', margin: '0 0 36px 0' }}>
                 <Link href="/services" className="btn-primary">
                   Explore Solutions
                 </Link>
                 <Link href="/contact" className="btn-secondary">
-                  Start a Project
+                  Start a Project ➔
                 </Link>
               </div>
             </Reveal>
-            <Reveal delay={600}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', borderTop: '1px solid var(--border)', paddingTop: '28px' }}>
+
+            {/* Mobile Device Telemetry Preview Card */}
+            <Reveal delay={650}>
+              <div className="hero-device-preview" aria-label="IoT system preview">
+                <div className="hero-device-header">
+                  <span>ASRAGEN CORE™</span>
+                  <span className="hero-device-status">
+                    <i /> SIMULATION
+                  </span>
+                </div>
+                <div className="hero-device-grid">
+                  <div>
+                    <strong>{temp}°C</strong>
+                    <span>Temperature</span>
+                  </div>
+                  <div>
+                    <strong>{humidity}%</strong>
+                    <span>Humidity</span>
+                  </div>
+                  <div>
+                    <strong>{power} kW</strong>
+                    <span>Power</span>
+                  </div>
+                </div>
+                <div className="hero-device-line">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={750}>
+              <div className="hero-stats">
                 {stats.map((stat, i) => (
-                  <div key={i} style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ fontSize: '18px', fontWeight: 700, color: 'var(--gold-light)', fontFamily: 'var(--font-serif)' }}>{stat.num}</span>
-                    <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '4px' }}>{stat.label}</span>
+                  <div key={i} className="stat-item">
+                    <span className="stat-num">{stat.num}</span>
+                    <span className="stat-label">{stat.label}</span>
                   </div>
                 ))}
               </div>
@@ -151,7 +220,7 @@ export default function HomeClient() {
           </div>
 
           {/* SVG Animated Network Visualization (Hero Right) */}
-          <div style={{ zIndex: 10, display: 'flex', justifyContent: 'center' }}>
+          <div style={{ zIndex: 10, display: 'flex', justifyContent: 'center' }} className="hide-on-mobile">
             <Reveal delay={400}>
               <div style={{ background: 'rgba(15, 15, 15, 0.45)', border: '1px solid var(--border-bright)', borderRadius: '24px', padding: '32px', width: '100%', maxWidth: '420px', backdropFilter: 'blur(20px)', boxShadow: 'var(--glow)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border)', paddingBottom: '14px', marginBottom: '20px', fontSize: '11px', fontFamily: 'var(--font-mono)' }}>
@@ -204,7 +273,34 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 02 WHAT WE BUILD (COMPACT 2x3 INTERACTIVE GRID) */}
+      {/* 02 WHY ASRAGEN */}
+      <section className="values" aria-labelledby="why-asragen-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
+        <div className="values-inner">
+          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+            <Reveal>
+              <span className="section-tag">Value Proposition</span>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="section-title" id="why-asragen-title">
+                Why <span>ASRAGEN</span>
+              </h2>
+            </Reveal>
+          </div>
+
+          <div className="values-grid" role="list" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
+            {whyPoints.map((pt, i) => (
+              <Reveal delay={i * 100} key={i}>
+                <div className="value-card" role="listitem" style={{ height: '100%', padding: '30px 24px' }}>
+                  <h4 style={{ fontSize: '18px', color: 'var(--gold-light)', marginBottom: '8px' }}>{pt.title}</h4>
+                  <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{pt.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 03 WHAT WE BUILD (COMPACT 2x3 INTERACTIVE GRID) */}
       <section className="build-section" aria-labelledby="build-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <Reveal>
@@ -246,7 +342,7 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 03 ASRAGEN CORE™ DIGITAL TWIN (Visually Dominant Centerpiece) */}
+      {/* 04 ASRAGEN CORE™ DIGITAL TWIN (Visually Dominant Centerpiece) */}
       <section className="twin-section" aria-labelledby="twin-title" style={{ padding: '100px 0', borderTop: '1px solid var(--border)' }}>
         <div className="twin-grid">
           <div>
@@ -269,32 +365,25 @@ export default function HomeClient() {
               </p>
             </Reveal>
             <Reveal delay={300}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border)', borderRadius: '14px', padding: '20px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>CONNECTION MODE:</span>
-                  <span style={{ color: 'var(--gold)', fontWeight: 600 }}>SIMULATION</span>
+              <div className="twin-meta">
+                <div>
+                  <span>Mode:</span>
+                  <strong>INTERACTIVE SIMULATION</strong>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>PROTOCOL:</span>
-                  <span style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>MQTT</span>
+                <div>
+                  <span>Protocol:</span>
+                  <strong>MQTT / TLS READY</strong>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>SECURITY:</span>
-                  <span style={{ color: 'var(--tech-green)', fontWeight: 600 }}>TLS READY</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                  <span style={{ color: 'var(--text-secondary)' }}>FIRMWARE:</span>
-                  <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-primary)' }}>DEMO v2.4.1</span>
-                </div>
-                <div style={{ borderTop: '1px solid var(--border)', paddingTop: '10px', fontSize: '11px', color: 'var(--text-muted)', textAlign: 'center', fontStyle: 'italic' }}>
-                  Interactive Simulation · No physical device connected
+                <div>
+                  <span>Device:</span>
+                  <strong>ASRAGEN_CORE_001</strong>
                 </div>
               </div>
             </Reveal>
           </div>
 
           <Reveal delay={200}>
-            <div className="twin-control-panel" style={{ border: '1px solid var(--border-bright)' }}>
+            <div className="twin-control-panel">
               <div className="panel-header">
                 <span className="panel-title">DEVICE OVERVIEW</span>
                 <div className="status-dot-wrap">
@@ -314,7 +403,7 @@ export default function HomeClient() {
                   <div className="metric-val">{isOnline && status === 'RUNNING' ? `${humidity}%` : '--'}</div>
                   <div className="metric-lbl">Humidity</div>
                 </div>
-                <div className="metric-card" style={{ gridColumn: 'span 2' }}>
+                <div className="metric-card metric-card-wide">
                   <div className="metric-val" style={{ color: 'var(--gold-light)' }}>
                     {isOnline ? `${power} kW` : '0.00 kW'}
                   </div>
@@ -356,7 +445,7 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 04 HOW IT CONNECTS (Workflow & Animation) */}
+      {/* 05 HOW IT CONNECTS (Workflow & Animation) */}
       <section className="why" aria-labelledby="arch-title" style={{ background: 'rgba(5, 5, 5, 0.4)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '80px 0' }}>
         <div className="why-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div className="why-header" style={{ marginBottom: '60px' }}>
@@ -375,7 +464,7 @@ export default function HomeClient() {
             </Reveal>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', position: 'relative' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', position: 'relative' }} className="mobile-stack-flow">
             {[
               { label: '01. SENSORS', detail: 'NPK, Moisture, Vibration' },
               { label: '02. EDGE MCU', detail: 'ESP32 / STM32 Edge Core' },
@@ -400,57 +489,8 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 05 REAL PROJECT / CASE STUDY */}
-      <section className="why" aria-labelledby="project-title" style={{ padding: '80px 0' }}>
-        <div className="why-inner" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <Reveal>
-              <span className="section-tag">Case Studies</span>
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 className="section-title" id="project-title" style={{ margin: '12px 0' }}>
-                Engineered in the <span>Real World</span>
-              </h2>
-            </Reveal>
-          </div>
-
-          <Reveal>
-            <div style={{ background: 'var(--glass-bg)', border: '1px solid var(--border)', borderRadius: '24px', padding: '40px', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '40px', alignItems: 'center' }} className="responsive-grid-project">
-              <div>
-                <span style={{ fontSize: '11px', color: 'var(--gold)', fontFamily: 'var(--font-mono)', letterSpacing: '1px', fontWeight: 600 }}>FEATURED PROJECT</span>
-                <h3 style={{ fontSize: '24px', fontWeight: 600, color: 'var(--text-primary)', margin: '12px 0 16px' }}>Smart Machine Monitoring</h3>
-                
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div>
-                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', fontWeight: 600 }}>Problem</span>
-                    <p style={{ fontSize: '14px', color: 'var(--text-secondary)', fontWeight: 300 }}>Machine operators lack real-time visibility into operating conditions and downtime cycles.</p>
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', fontWeight: 600 }}>ASRAGEN Solution</span>
-                    <p style={{ fontSize: '14px', color: 'var(--text-secondary)', fontWeight: 300 }}>Deployed ESP32 edge modules, connected vibration sensors, and piped telemetry via MQTT to a live cloud twin dashboard.</p>
-                  </div>
-                  <div>
-                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', fontWeight: 600 }}>Result</span>
-                    <p style={{ fontSize: '14px', color: 'var(--tech-green)', fontWeight: 500 }}>● Active remote diagnostics, automated alerts, and 98% tracking visibility.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ background: 'rgba(0, 0, 0, 0.4)', border: '1px solid var(--border)', borderRadius: '16px', padding: '24px', textAlign: 'center', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <span style={{ color: 'var(--tech-green)', fontWeight: 600, fontSize: '11px', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '12px' }}>● SYSTEM RUNNING</span>
-                <div style={{ fontSize: '32px', fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-serif)' }}>99.8%</div>
-                <div style={{ fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '1px', textTransform: 'uppercase', marginTop: '4px' }}>OPERATIONAL UPTIME</div>
-                <div style={{ borderTop: '1px solid var(--border)', marginTop: '20px', paddingTop: '16px', fontSize: '12px', color: 'var(--text-secondary)', fontStyle: 'italic' }}>
-                  "Integrated system live logs."
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* 06 INDUSTRIES */}
-      <section className="why" aria-labelledby="ind-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+      <section className="why" aria-labelledby="ind-title" style={{ padding: '80px 0', borderBottom: '1px solid var(--border)' }}>
         <div className="why-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <Reveal>
@@ -488,7 +528,7 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* 07 HOW WE BUILD (Horizontal timeline with interactive details) */}
+      {/* 07 HOW WE BUILD (Vertical steps layout on mobile) */}
       <section className="process-section" aria-labelledby="process-title" style={{ padding: '80px 0' }}>
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <Reveal>
@@ -501,52 +541,16 @@ export default function HomeClient() {
           </Reveal>
         </div>
 
-        {/* Horizontal Navigation */}
-        <Reveal>
-          <div style={{ display: 'flex', overflowX: 'auto', gap: '8px', paddingBottom: '16px', borderBottom: '1px solid var(--border)', justifyContent: 'center' }}>
-            {processSteps.map((step, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveStep(idx)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: activeStep === idx ? 'var(--gold-light)' : 'var(--text-muted)',
-                  fontSize: '11px',
-                  fontFamily: 'var(--font-mono)',
-                  letterSpacing: '1.5px',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  padding: '12px 18px',
-                  borderBottom: activeStep === idx ? '2px solid var(--gold)' : '2px solid transparent',
-                  transition: 'all 0.2s',
-                  whiteSpace: 'nowrap'
-                }}
-              >
-                {step.step} {step.title}
-              </button>
-            ))}
-          </div>
-        </Reveal>
-
-        {/* Selected Step Detail Panel */}
-        <div style={{ marginTop: '32px', textAlign: 'center', minHeight: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Reveal delay={100}>
-            <div style={{ maxWidth: '600px', margin: '0 auto', background: 'var(--glass-bg)', padding: '32px', borderRadius: '16px', border: '1px solid var(--border)' }}>
-              <span style={{ fontSize: '36px', fontFamily: 'var(--font-serif)', color: 'rgba(212, 175, 55, 0.15)', fontWeight: 700, display: 'block', marginBottom: '8px' }}>
-                {processSteps[activeStep].step}
-              </span>
-              <h4 style={{ fontSize: '18px', color: 'var(--gold-light)', fontWeight: 600, marginBottom: '8px' }}>
-                {processSteps[activeStep].title}
-              </h4>
-              <h5 style={{ fontSize: '14px', color: 'var(--gold)', fontWeight: 400, marginBottom: '12px', fontFamily: 'var(--font-sans)' }}>
-                {processSteps[activeStep].short}
-              </h5>
-              <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6', fontWeight: 300 }}>
-                {processSteps[activeStep].desc}
-              </p>
-            </div>
-          </Reveal>
+        <div className="process-grid">
+          {processSteps.map((step, idx) => (
+            <Reveal delay={idx * 100} key={idx}>
+              <div className="process-card">
+                <span className="process-step-num">{step.step}</span>
+                <h4>{step.title}</h4>
+                <p>{step.desc}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 
@@ -564,40 +568,59 @@ export default function HomeClient() {
             </Reveal>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '32px' }}>
-            {[
-              { category: 'HARDWARE', techs: ['ESP32', 'STM32', 'Arduino', 'Raspberry Pi'] },
-              { category: 'CONNECTIVITY', techs: ['MQTT', 'REST APIs', 'Wi-Fi Protocols', 'Bluetooth / BLE'] },
-              { category: 'SOFTWARE', techs: ['React', 'Next.js UI', 'Flutter Mobile', 'Python', 'Node.js'] },
-              { category: 'DATA & CLOUD', techs: ['PostgreSQL', 'SupaBase DB', 'Docker Configs', 'Cloud Hosting'] },
-            ].map((stack, i) => (
-              <Reveal delay={i * 100} key={i}>
-                <div style={{ background: 'var(--glass-bg)', border: '1px solid var(--border)', borderRadius: '16px', padding: '24px' }}>
-                  <div style={{ color: 'var(--gold)', fontSize: '11px', letterSpacing: '1px', fontWeight: 600, fontFamily: 'var(--font-mono)', marginBottom: '16px', borderBottom: '1px solid var(--border)', paddingBottom: '8px' }}>
-                    {stack.category}
-                  </div>
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    {stack.techs.map((tech, idx) => (
-                      <li key={idx} style={{ fontSize: '13px', color: 'var(--text-secondary)', fontWeight: 300 }}>
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            ))}
+          <div className="tech-groups" aria-label="Technology stack">
+            <div className="tech-group">
+              <span className="tech-group-title">Hardware</span>
+              <div className="tech-items">
+                <span className="tech-pill">ESP32</span>
+                <span className="tech-pill">STM32</span>
+                <span className="tech-pill">Arduino</span>
+                <span className="tech-pill">Raspberry Pi</span>
+              </div>
+            </div>
+
+            <div className="tech-group">
+              <span className="tech-group-title">Connectivity</span>
+              <div className="tech-items">
+                <span className="tech-pill">MQTT</span>
+                <span className="tech-pill">REST APIs</span>
+                <span className="tech-pill">Wi-Fi</span>
+                <span className="tech-pill">BLE</span>
+              </div>
+            </div>
+
+            <div className="tech-group">
+              <span className="tech-group-title">Software</span>
+              <div className="tech-items">
+                <span className="tech-pill">React</span>
+                <span className="tech-pill">Next.js</span>
+                <span className="tech-pill">Flutter</span>
+                <span className="tech-pill">Python</span>
+                <span className="tech-pill">Node.js</span>
+              </div>
+            </div>
+
+            <div className="tech-group">
+              <span className="tech-group-title">Data & Cloud</span>
+              <div className="tech-items">
+                <span className="tech-pill">PostgreSQL</span>
+                <span className="tech-pill">Supabase</span>
+                <span className="tech-pill">Docker</span>
+                <span className="tech-pill">Cloud</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* 09 FINAL CTA */}
-      <section className="cta-section" aria-labelledby="cta-title" style={{ padding: '100px 0', borderTop: '1px solid var(--border)' }}>
+      <section className="cta-section" aria-labelledby="cta-title">
         <div className="cta-inner">
           <Reveal>
             <span className="section-tag">Have a Problem Worth Automating?</span>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="section-title" id="cta-title">
+            <h2 className="section-title" id="cta-title" style={{ margin: '12px 0 24px' }}>
               LET'S <span>AUTOMATE IT.</span>
             </h2>
           </Reveal>
@@ -607,7 +630,7 @@ export default function HomeClient() {
             </p>
           </Reveal>
           <Reveal delay={300}>
-            <div className="cta-buttons" style={{ display: 'flex', justifyContent: 'center' }}>
+            <div className="cta-buttons">
               <Link href="/contact" className="btn-primary">
                 Start a Project ➔
               </Link>
