@@ -468,7 +468,7 @@ export default function HomeClient() {
               { label: '01. SENSORS', detail: 'Temperature, Energy, Vibration' },
               { label: '02. EDGE MCU', detail: 'ESP32 / STM32 Edge Core' },
               { label: '03. CONNECTIVITY', detail: 'Secure MQTT / REST API' },
-              { label: '04. CLOUD HUB', detail: 'Docker / Supabase Host' },
+              { label: '04. SECURE CLOUD', detail: 'Docker / Supabase / PostgreSQL' },
               { label: '05. DIGITAL TWIN', detail: 'Interactive Visual Twin' },
               { label: '06. ACTIONS', detail: 'Automated Operations' },
             ].map((step, i) => (
@@ -514,8 +514,8 @@ export default function HomeClient() {
                   <h3 style={{ fontSize: '20px', fontWeight: 600, color: 'var(--text-primary)', margin: 0 }}>
                     🧵 Textile Intelligence
                   </h3>
-                  <span style={{ fontSize: '9px', color: 'var(--gold-light)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 600 }}>
-                    ★ Highlighted Specialization
+                  <span style={{ fontSize: '9px', color: 'var(--gold)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 600 }}>
+                    ★ FEATURED SPECIALIZATION
                   </span>
                 </div>
                 <div style={{ fontSize: '11px', color: 'var(--gold-light)', letterSpacing: '0.5px', marginBottom: '12px', fontWeight: 500 }}>
