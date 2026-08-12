@@ -2546,10 +2546,10 @@ footer {
     padding: 24px !important;
   }
 
-  /* Process stack 1 col */
+  /* Process grid 2 col mobile */
   .process-grid {
-    grid-template-columns: 1fr !important;
-    gap: 8px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
     margin-top: 36px;
   }
 
@@ -2725,6 +2725,11 @@ footer {
   section {
     padding-left: 14px;
     padding-right: 14px;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
   }
 }
 
