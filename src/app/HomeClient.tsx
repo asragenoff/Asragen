@@ -39,8 +39,8 @@ export default function HomeClient() {
   };
 
   const stats = [
-    { num: '45+', label: 'Projects Built' },
-    { num: '4+', label: 'Tech Domains' },
+    { num: '45+', label: 'Projects / Prototypes' },
+    { num: '4+', label: 'Technology Domains' },
     { num: 'IoT', label: 'End-to-End' },
     { num: '24/7', label: 'Monitoring Ready' },
   ];
@@ -49,7 +49,7 @@ export default function HomeClient() {
     { title: 'Hardware + Software', desc: 'End-to-end engineering. We design the physical circuitry and flash the firmware.' },
     { title: 'Problem First', desc: 'No cookie-cutter templates. Technology designed around your actual operational parameters.' },
     { title: 'Prototype ➔ Product', desc: 'Taking systems from initial breadboard verification to industrial site integration.' },
-    { title: 'Built to Scale', desc: 'Enterprise ready. Distributed databases, redundant servers, and modular architectures.' },
+    { title: 'Built to Scale', desc: 'Modular architectures designed to grow from prototype deployments to larger connected systems.' },
   ];
 
   const buildItems = [
@@ -65,7 +65,7 @@ export default function HomeClient() {
       tag: 'CONNECTED HARDWARE',
       title: 'Industrial IoT',
       route: 'Legacy Machinery ➔ Gateway ➔ Cloud Hub ➔ API',
-      desc: 'Connect legacy machinery and modern sensors to secure cloud-hosted dashboards.',
+      desc: 'Connect legacy machinery and modern sensors to secure monitoring dashboards and analytics systems.',
     },
     {
       num: '03',
@@ -342,7 +342,7 @@ export default function HomeClient() {
         <div className="twin-grid">
           <div>
             <Reveal>
-              <span className="section-tag">Platform Hub</span>
+              <span className="section-tag" style={{ color: 'var(--gold)', letterSpacing: '2px', display: 'block', marginBottom: '8px', fontWeight: 600 }}>LIVE DIGITAL TWIN DEMO</span>
             </Reveal>
             <Reveal delay={100}>
               <h2 className="section-title" id="twin-title" style={{ textAlign: 'left', margin: '12px 0 16px' }}>
@@ -356,7 +356,7 @@ export default function HomeClient() {
             </Reveal>
             <Reveal delay={200}>
               <p className="section-desc" style={{ textAlign: 'left', maxWidth: '100%', marginBottom: '24px' }}>
-                Monitor devices, visualize telemetry and control connected systems through one intelligent platform. Toggle simulation inputs below to test the active telemetry updates.
+                Interact with the simulated system and see telemetry respond in real time. Monitor devices, visualize telemetry and control connected systems through one intelligent platform. Toggle simulation inputs below to test the active telemetry updates.
               </p>
             </Reveal>
             <Reveal delay={300}>
@@ -461,9 +461,9 @@ export default function HomeClient() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', position: 'relative' }} className="mobile-stack-flow">
             {[
-              { label: '01. SENSORS', detail: 'NPK, Moisture, Vibration' },
+              { label: '01. SENSORS', detail: 'Temperature, Energy, Vibration' },
               { label: '02. EDGE MCU', detail: 'ESP32 / STM32 Edge Core' },
-              { label: '03. CONDUIT', detail: 'Secure MQTT / API v1.3' },
+              { label: '03. CONNECTIVITY', detail: 'Secure MQTT / REST API' },
               { label: '04. CLOUD HUB', detail: 'Docker / Supabase Host' },
               { label: '05. DIGITAL TWIN', detail: 'Interactive Visual Twin' },
               { label: '06. ACTIONS', detail: 'Automated Operations' },
@@ -513,6 +513,9 @@ export default function HomeClient() {
                   <span style={{ fontSize: '9px', color: 'var(--gold-light)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 600 }}>
                     ★ Highlighted Specialization
                   </span>
+                </div>
+                <div style={{ fontSize: '11px', color: 'var(--gold-light)', letterSpacing: '0.5px', marginBottom: '12px', fontWeight: 500 }}>
+                  Machine Monitoring · Energy Intelligence · Environment Monitoring · Predictive Maintenance
                 </div>
                 <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6', fontWeight: 300 }}>
                   Monitor loom machinery operations, log energy spikes, and track real-time climate conditions through connected edge sensors.
@@ -601,7 +604,6 @@ export default function HomeClient() {
                 <span className="tech-pill">PostgreSQL</span>
                 <span className="tech-pill">Supabase</span>
                 <span className="tech-pill">Docker</span>
-                <span className="tech-pill">Cloud</span>
               </div>
             </div>
           </div>

@@ -84,11 +84,7 @@ export default function Footer() {
           <h4 className="footer-col-title">Contact</h4>
           <ul className="footer-col-links">
             <li style={{ color: 'var(--text-secondary)' }}>
-              <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>START A PROJECT</span>
-              {"asragenoff"}{"\u0040"}{"gmail.com"}
-            </li>
-            <li style={{ color: 'var(--text-secondary)' }}>
-              <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>GENERAL INQUIRIES</span>
+              <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>Start a Project</span>
               {"hello"}{"\u0040"}{"asragen.com"}
             </li>
             <li style={{ color: 'var(--text-secondary)' }}>

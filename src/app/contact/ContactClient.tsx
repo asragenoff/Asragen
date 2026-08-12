@@ -327,11 +327,7 @@ Describe additional custom integrations or hardware specifics:
         <Reveal delay={500}>
           <div className="cta-contact">
             <div className="contact-item">
-              <span className="contact-label">Direct Intake</span>
-              <span className="contact-value">asragenoff@gmail.com</span>
-            </div>
-            <div className="contact-item">
-              <span className="contact-label">Engineering Desk</span>
+              <span className="contact-label">Project Intake</span>
               <span className="contact-value">hello@asragen.com</span>
             </div>
             <div className="contact-item">
