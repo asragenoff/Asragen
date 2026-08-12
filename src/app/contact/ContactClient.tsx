@@ -316,7 +316,7 @@ Describe additional custom integrations or hardware specifics:
 
               {submitStatus === 'error' && (
                 <p style={{ color: '#ff4a4a', marginTop: '20px', fontSize: '14px', letterSpacing: '1px', textAlign: 'center' }}>
-                  ✕ Transmission error. Please check your network connection or email hello@asragen.com.
+                  ✕ Transmission error. Please check your network connection or email asragenoff@gmail.com.
                 </p>
               )}
             </form>
@@ -328,7 +328,7 @@ Describe additional custom integrations or hardware specifics:
           <div className="cta-contact">
             <div className="contact-item">
               <span className="contact-label">Project Intake</span>
-              <span className="contact-value">hello@asragen.com</span>
+              <span className="contact-value">asragenoff@gmail.com</span>
             </div>
             <div className="contact-item">
               <span className="contact-label">Response Time</span>

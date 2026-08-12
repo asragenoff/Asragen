@@ -85,7 +85,7 @@ export default function Footer() {
           <ul className="footer-col-links">
             <li style={{ color: 'var(--text-secondary)' }}>
               <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>Start a Project</span>
-              {"hello"}{"\u0040"}{"asragen.com"}
+              {"asragenoff"}{"\u0040"}{"gmail.com"}
             </li>
             <li style={{ color: 'var(--text-secondary)' }}>
               <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>Typical response:</span>

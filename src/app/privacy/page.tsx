@@ -59,7 +59,7 @@ export default function PrivacyPage() {
               5. Contact Us
             </h3>
             <p style={{ marginBottom: '20px' }}>
-              If you have any questions about this Privacy Policy, you can reach us at hello@asragen.com.
+              If you have any questions about this Privacy Policy, you can reach us at asragenoff@gmail.com.
             </p>
           </div>
         </Reveal>
