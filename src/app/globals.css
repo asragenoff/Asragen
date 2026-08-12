@@ -655,9 +655,9 @@ section {
 
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .value-card {
@@ -1866,8 +1866,8 @@ footer {
 
 .twin-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 60px;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 36px;
   align-items: center;
 }
 
@@ -2707,6 +2707,13 @@ footer {
   section {
     padding-left: 14px;
     padding-right: 14px;
+  }
+}
+
+/* Topology horizontal desktop layout */
+@media (min-width: 769px) {
+  .mobile-stack-flow {
+    grid-template-columns: repeat(6, 1fr) !important;
   }
 }
 

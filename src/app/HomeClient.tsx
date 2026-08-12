@@ -201,17 +201,7 @@ export default function HomeClient() {
                 </div>
               </div>
             </Reveal>
-
-            <Reveal delay={750}>
-              <div className="hero-stats">
-                {stats.map((stat, i) => (
-                  <div key={i} className="stat-item">
-                    <span className="stat-num">{stat.num}</span>
-                    <span className="stat-label">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
+            {/* Stats block moved out of hero */}
           </div>
 
           {/* SVG Animated Network Visualization (Hero Right) */}
@@ -268,8 +258,22 @@ export default function HomeClient() {
         </div>
       </section>
 
+      {/* 01.5 HERO STATS STRIP */}
+      <section className="stats-strip" aria-label="Key Metrics" style={{ padding: '30px 0', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', background: 'rgba(5, 5, 5, 0.4)', position: 'relative', zIndex: 10 }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
+          <div className="hero-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', textAlign: 'center' }}>
+            {stats.map((stat, i) => (
+              <div key={i} className="stat-item">
+                <span className="stat-num" style={{ fontSize: '36px', fontWeight: 700, color: 'var(--gold)', display: 'block' }}>{stat.num}</span>
+                <span className="stat-label" style={{ display: 'block', fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '4px' }}>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 02 WHY ASRAGEN */}
-      <section className="values" aria-labelledby="why-asragen-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
+      <section className="values" aria-labelledby="why-asragen-title" style={{ padding: '80px 0' }}>
         <div className="values-inner">
           <div style={{ textAlign: 'center', marginBottom: '50px' }}>
             <Reveal>
