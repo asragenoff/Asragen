@@ -2233,7 +2233,7 @@ footer {
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   z-index: 1005;
-  padding: 110px 28px 32px;
+  padding: 80px 28px 32px;
   display: flex;
   flex-direction: column;
   transform: translateY(-100%);
@@ -2321,6 +2321,10 @@ footer {
     height: 58px;
     padding: 0 16px 0 18px;
     border-radius: 18px;
+  }
+
+  .main-nav .nav-cta {
+    display: none;
   }
 
   .nav-logo {

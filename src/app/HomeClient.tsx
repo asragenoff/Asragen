@@ -155,11 +155,6 @@ export default function HomeClient() {
               </h1>
             </Reveal>
             <Reveal delay={300}>
-              <p className="hero-tagline" style={{ fontSize: '18px', color: 'var(--text-secondary)', margin: '0 0 24px 0', textTransform: 'none', fontWeight: 300, lineHeight: '1.6' }}>
-                Engineering intelligent IoT and automation systems for the real world.
-              </p>
-            </Reveal>
-            <Reveal delay={450}>
               <p className="hero-desc">
                 Engineering intelligent IoT and automation systems for the real world — from connected devices to digital platforms.
               </p>
