@@ -24,7 +24,7 @@ export default function Footer() {
             </div>
           </div>
           <p className="footer-desc">
-            A technology-driven company pioneering intelligent IoT, automation, AI software, and custom embedded systems for modern industries.
+            A technology company engineering intelligent IoT, automation, embedded systems and digital platforms for modern industries.
           </p>
           <div className="footer-socials" style={{ display: 'flex', gap: '16px', marginTop: '20px' }}>
             <a 
@@ -81,19 +81,19 @@ export default function Footer() {
 
         {/* Contact Column */}
         <div>
-          <h4 className="footer-col-title">Get in Touch</h4>
+          <h4 className="footer-col-title">Contact</h4>
           <ul className="footer-col-links">
             <li style={{ color: 'var(--text-secondary)' }}>
-              <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>Engineering Intake</span>
+              <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>START A PROJECT</span>
               {"asragenoff"}{"\u0040"}{"gmail.com"}
             </li>
             <li style={{ color: 'var(--text-secondary)' }}>
-              <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>General Inquiries</span>
+              <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>GENERAL INQUIRIES</span>
               {"hello"}{"\u0040"}{"asragen.com"}
             </li>
             <li style={{ color: 'var(--text-secondary)' }}>
-              <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>Response Timeline</span>
-              Under 24 Hours
+              <span style={{ color: 'var(--gold)', fontSize: '11px', display: 'block', textTransform: 'uppercase', letterSpacing: '1px' }}>Typical response:</span>
+              &lt;24 hours
             </li>
           </ul>
         </div>
