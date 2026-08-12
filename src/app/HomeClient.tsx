@@ -12,6 +12,9 @@ export default function HomeClient() {
   const [power, setPower] = useState(1.24);
   const [status, setStatus] = useState('RUNNING');
 
+  // Process timeline state
+  const [activeStep, setActiveStep] = useState(0);
+
   // Fluctuating values loop
   useEffect(() => {
     if (!isOnline || status === 'STOPPED') return;
@@ -40,6 +43,13 @@ export default function HomeClient() {
     { num: 'MQTT / REST', label: 'Secure Connectivity' },
     { num: '24/7 Ready', label: 'Real-time Telemetry' },
     { num: 'End-to-End', label: 'System Engineering' },
+  ];
+
+  const whyPoints = [
+    { title: 'Hardware + Software', desc: 'End-to-end engineering. We design the physical circuitry and flash the firmware.' },
+    { title: 'Problem First', desc: 'No cookie-cutter templates. Technology designed around your actual operational parameters.' },
+    { title: 'Prototype ➔ Product', desc: 'Taking systems from initial breadboard verification to industrial site integration.' },
+    { title: 'Built to Scale', desc: 'Enterprise ready. Distributed databases, redundant servers, and modular architectures.' },
   ];
 
   const buildItems = [
@@ -88,12 +98,12 @@ export default function HomeClient() {
   ];
 
   const processSteps = [
-    { step: '01', title: 'Discover', desc: 'We consult on your operational requirements, physical variables, and custom business objectives.' },
-    { step: '02', title: 'Design', desc: 'We design the hardware, software, and user experience around your real operational requirements.' },
-    { step: '03', title: 'Prototype', desc: 'We build working hardware prototypes, flash the initial code, and test them under simulated conditions.' },
-    { step: '04', title: 'Engineer', desc: 'We write robust device firmware, secure server pathways, web dashboard systems, and backend controls.' },
-    { step: '05', title: 'Deploy', desc: 'We deploy the completed physical enclosures, calibrate the sensors, and launch the live cloud streams.' },
-    { step: '06', title: 'Scale', desc: 'We provide ongoing software upgrades, network management, telemetry logs, and long-term technical SLAs.' },
+    { step: '01', title: 'DISCOVER', desc: 'We consult on your operational requirements, physical variables, and custom business objectives.' },
+    { step: '02', title: 'DESIGN', desc: 'We design the hardware, software, and user experience around your real operational requirements.' },
+    { step: '03', title: 'PROTOTYPE', desc: 'We build working hardware prototypes, flash the initial code, and test them under simulated conditions.' },
+    { step: '04', title: 'ENGINEER', desc: 'We write robust device firmware, secure server pathways, web dashboard systems, and backend controls.' },
+    { step: '05', title: 'DEPLOY', desc: 'We deploy the completed physical enclosures, calibrate the sensors, and launch the live cloud streams.' },
+    { step: '06', title: 'SCALE', desc: 'We provide ongoing software upgrades, network management, telemetry logs, and long-term technical SLAs.' },
   ];
 
   const industriesTeaser = [
@@ -111,7 +121,7 @@ export default function HomeClient() {
       <div className="glow-blob glow-2" aria-hidden="true"></div>
       <div className="glow-blob glow-3" aria-hidden="true"></div>
 
-      {/* HERO */}
+      {/* 01 HERO */}
       <section className="hero" aria-label="Hero" style={{ paddingTop: '180px', paddingBottom: '80px' }}>
         <div className="hero-grid-bg" aria-hidden="true"></div>
         <div className="hero-radial" aria-hidden="true"></div>
@@ -211,8 +221,77 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* ASRAGEN CORE™ DIGITAL TWIN (visually dominant differentiator) */}
-      <section className="twin-section" aria-labelledby="twin-title" style={{ padding: '80px 0' }}>
+      {/* 02 WHY ASRAGEN */}
+      <section className="values" aria-labelledby="why-asragen-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
+        <div className="values-inner">
+          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+            <Reveal>
+              <span className="section-tag">Value Proposition</span>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="section-title" id="why-asragen-title">
+                Why <span>ASRAGEN</span>
+              </h2>
+            </Reveal>
+          </div>
+
+          <div className="values-grid" role="list" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
+            {whyPoints.map((pt, i) => (
+              <Reveal delay={i * 100} key={i}>
+                <div className="value-card" role="listitem" style={{ height: '100%', padding: '30px 24px' }}>
+                  <h4 style={{ fontSize: '18px', color: 'var(--gold-light)', marginBottom: '8px' }}>{pt.title}</h4>
+                  <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{pt.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 03 WHAT WE BUILD */}
+      <section className="build-section" aria-labelledby="build-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <Reveal>
+            <span className="section-tag">Solutions & Deliverables</span>
+          </Reveal>
+          <Reveal delay={100}>
+            <h2 className="section-title" id="build-title" style={{ margin: '12px 0' }}>
+              WHAT WE <span>BUILD</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="section-desc" style={{ margin: '0 auto', maxWidth: '640px' }}>
+              Technology engineered for the physical world.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="build-grid">
+          {buildItems.map((item, i) => (
+            <Reveal delay={i * 100} key={i}>
+              <div className="build-card">
+                <div className="build-card-header">
+                  <span className="build-card-num">{item.num}</span>
+                  <span className="build-card-tag">● {item.tag}</span>
+                </div>
+                <h3 className="build-card-title">{item.title}</h3>
+                <span className="build-card-route">{item.route}</span>
+                
+                {/* Expands on Hover */}
+                <div className="build-card-extra">
+                  <p className="build-card-desc">{item.desc}</p>
+                  <Link href="/services" className="build-card-link">
+                    Explore solution <span>➔</span>
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* 04 ASRAGEN CORE™ DIGITAL TWIN (Visually Dominant Section) */}
+      <section className="twin-section" aria-labelledby="twin-title" style={{ padding: '100px 0', borderTop: '1px solid var(--border)' }}>
         <div className="twin-grid">
           <div>
             <Reveal>
@@ -311,80 +390,149 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* WHAT WE BUILD (COMPACT 2x3 INTERACTIVE GRID) */}
-      <section className="build-section" aria-labelledby="build-title">
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <Reveal>
-            <span className="section-tag">Solutions & Deliverables</span>
-          </Reveal>
-          <Reveal delay={100}>
-            <h2 className="section-title" id="build-title" style={{ margin: '12px 0' }}>
-              WHAT WE <span>BUILD</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="section-desc" style={{ margin: '0 auto', maxWidth: '640px' }}>
-              Technology engineered for the physical world.
-            </p>
-          </Reveal>
-        </div>
-
-        <div className="build-grid">
-          {buildItems.map((item, i) => (
-            <Reveal delay={i * 100} key={i}>
-              <div className="build-card">
-                <div className="build-card-header">
-                  <span className="build-card-num">{item.num}</span>
-                  <span className="build-card-tag">● {item.tag}</span>
-                </div>
-                <h3 className="build-card-title">{item.title}</h3>
-                <span className="build-card-route">{item.route}</span>
-                
-                {/* Expands on Hover */}
-                <div className="build-card-extra">
-                  <p className="build-card-desc">{item.desc}</p>
-                  <Link href="/services" className="build-card-link">
-                    Explore solution <span>➔</span>
-                  </Link>
-                </div>
-              </div>
+      {/* 05 HOW IT CONNECTS */}
+      <section className="why" aria-labelledby="arch-title" style={{ background: 'rgba(5, 5, 5, 0.4)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '80px 0' }}>
+        <div className="why-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div className="why-header" style={{ marginBottom: '60px' }}>
+            <Reveal>
+              <span className="section-tag">System Topology</span>
             </Reveal>
-          ))}
+            <Reveal delay={100}>
+              <h2 className="section-title" id="arch-title">
+                From Device to <span>Intelligence</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="section-desc">
+                An integrated data pipe engineered to move physical sensor metrics directly into cloud analytics pipelines.
+              </p>
+            </Reveal>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', position: 'relative' }}>
+            {[
+              { label: '01. SENSORS', detail: 'NPK, Moisture, Vibration' },
+              { label: '02. EDGE MCU', detail: 'ESP32 / STM32 Edge Core' },
+              { label: '03. CONDUIT', detail: 'Secure MQTT / API v1.3' },
+              { label: '04. CLOUD HUB', detail: 'Docker / Supabase Host' },
+              { label: '05. DIGITAL TWIN', detail: 'Interactive Visual Twin' },
+              { label: '06. ACTIONS', detail: 'Automated Operations' },
+            ].map((step, i) => (
+              <Reveal delay={i * 100} key={i}>
+                <div style={{ background: 'rgba(10, 10, 10, 0.45)', border: '1px solid var(--border)', borderRadius: '16px', padding: '24px 20px', textAlign: 'center', position: 'relative', height: '100%' }}>
+                  <div style={{ fontSize: '11px', color: 'var(--gold)', letterSpacing: '0.5px', fontWeight: 600, fontFamily: 'var(--font-mono)', marginBottom: '8px' }}>{step.label}</div>
+                  <div style={{ fontSize: '13px', color: 'var(--text-secondary)', fontWeight: 300 }}>{step.detail}</div>
+                  {i < 5 && (
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px', color: 'var(--border-bright)', fontSize: '12px' }} className="hide-on-mobile">
+                      ➔
+                    </div>
+                  )}
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* HOW WE BUILD (timeline) */}
+      {/* 06 INDUSTRIES */}
+      <section className="why" aria-labelledby="ind-title" style={{ padding: '80px 0', borderBottom: '1px solid var(--border)' }}>
+        <div className="why-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <Reveal>
+              <span className="section-tag">Target Verticals</span>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="section-title" id="ind-title" style={{ margin: '12px 0' }}>
+                Built for Real-World <span>Industries</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="section-desc" style={{ fontSize: '12px', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--text-muted)' }}>
+                MANUFACTURING · TEXTILES · ENERGY · SMART BUILDINGS · AGRICULTURE · LOGISTICS
+              </p>
+            </Reveal>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+            <Reveal>
+              <div className="build-card" style={{ border: '1px solid var(--border-bright)', background: 'rgba(212, 175, 55, 0.03)', maxWidth: '500px', width: '100%' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                  <h3 style={{ fontSize: '20px', fontWeight: 600, color: 'var(--text-primary)', margin: 0 }}>
+                    🧵 Textile Intelligence
+                  </h3>
+                  <span style={{ fontSize: '9px', color: 'var(--gold-light)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 600 }}>
+                    ★ Highlighted Specialization
+                  </span>
+                </div>
+                <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6', fontWeight: 300 }}>
+                  Monitor loom machinery operations, log energy spikes, and track real-time climate conditions through connected edge sensors.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 07 HOW WE BUILD (Horizontal timeline with interactive details) */}
       <section className="process-section" aria-labelledby="process-title" style={{ padding: '80px 0' }}>
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <Reveal>
-            <span className="section-tag">Engineering Timeline</span>
+            <span className="section-tag">Operational Model</span>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="section-title" id="process-title">
+            <h2 className="section-title" id="process-title" style={{ margin: '12px 0' }}>
               How We <span>Build</span>
             </h2>
           </Reveal>
-          <Reveal delay={200}>
-            <p className="section-desc">
-              We guide hardware engineering pipelines and software builds through a structured, transparent process.
-            </p>
-          </Reveal>
         </div>
 
-        <div className="process-grid">
-          {processSteps.map((step, idx) => (
-            <Reveal delay={idx * 100} key={idx}>
-              <div className="process-card">
-                <span className="process-step-num">{step.step}</span>
-                <h4>{step.title}</h4>
-                <p>{step.desc}</p>
-              </div>
-            </Reveal>
-          ))}
+        {/* Horizontal Navigation */}
+        <Reveal>
+          <div style={{ display: 'flex', overflowX: 'auto', gap: '8px', paddingBottom: '16px', borderBottom: '1px solid var(--border)', justifyContent: 'center' }}>
+            {processSteps.map((step, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveStep(idx)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: activeStep === idx ? 'var(--gold-light)' : 'var(--text-muted)',
+                  fontSize: '11px',
+                  fontFamily: 'var(--font-mono)',
+                  letterSpacing: '1.5px',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  padding: '12px 18px',
+                  borderBottom: activeStep === idx ? '2px solid var(--gold)' : '2px solid transparent',
+                  transition: 'all 0.2s',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                {step.step} {step.title}
+              </button>
+            ))}
+          </div>
+        </Reveal>
+
+        {/* Selected Step Detail Panel */}
+        <div style={{ marginTop: '32px', textAlign: 'center', minHeight: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Reveal delay={100}>
+            <div style={{ maxWidth: '600px', margin: '0 auto', background: 'var(--glass-bg)', padding: '32px', borderRadius: '16px', border: '1px solid var(--border)' }}>
+              <span style={{ fontSize: '36px', fontFamily: 'var(--font-serif)', color: 'rgba(212, 175, 55, 0.15)', fontWeight: 700, display: 'block', marginBottom: '8px' }}>
+                {processSteps[activeStep].step}
+              </span>
+              <h4 style={{ fontSize: '18px', color: 'var(--gold-light)', fontWeight: 600, marginBottom: '12px' }}>
+                {processSteps[activeStep].title}
+              </h4>
+              <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6', fontWeight: 300 }}>
+                {processSteps[activeStep].desc}
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* TECHNOLOGY STACK CATEGORIZED */}
+      {/* 08 TECHNOLOGY STACK CATEGORIZED */}
       <section className="tech-stack" aria-labelledby="tech-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
         <div className="tech-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '50px' }}>
@@ -404,7 +552,6 @@ export default function HomeClient() {
               { category: 'CONNECTIVITY', techs: ['MQTT', 'REST APIs', 'Wi-Fi Protocols', 'Bluetooth / BLE'] },
               { category: 'BACKEND', techs: ['Python', 'Node.js', 'PostgreSQL', 'SupaBase DB'] },
               { category: 'APPLICATIONS', techs: ['React', 'Next.js UI', 'Flutter Mobile'] },
-              { category: 'INFRASTRUCTURE', techs: ['Docker Configs', 'Cloud Hosting', 'TLS Encryption'] },
             ].map((stack, i) => (
               <Reveal delay={i * 100} key={i}>
                 <div style={{ background: 'var(--glass-bg)', border: '1px solid var(--border)', borderRadius: '16px', padding: '24px' }}>
@@ -425,87 +572,11 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* WHY ASRAGEN? */}
-      <section className="values" aria-labelledby="why-asragen-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
-        <div className="values-inner">
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <Reveal>
-              <span className="section-tag">Value Proposition</span>
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 className="section-title" id="why-asragen-title">
-                Why <span>ASRAGEN</span>
-              </h2>
-            </Reveal>
-          </div>
-
-          <div className="values-grid" role="list" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
-            {[
-              { letter: 'H', name: 'Hardware + Software', desc: 'We don\'t stop at the dashboard. We design and assemble the physical device architectures behind it.' },
-              { letter: 'P', name: 'Built for Your Problem', desc: 'Custom edge nodes and layout configurations tailored around your specific operating parameters.' },
-              { letter: 'P', name: 'Prototype to Deploy', desc: 'Taking systems from initial breadboard verification to industrial site integration and support.' },
-              { letter: 'D', name: 'Data to Decisions', desc: 'Sensors are valuable only when their data helps you act.' },
-            ].map((value, i) => (
-              <Reveal delay={i * 100} key={i}>
-                <div className="value-card" role="listitem" style={{ height: '100%' }}>
-                  <span className="value-letter" aria-hidden="true" style={{ fontSize: '64px' }}>
-                    {value.letter}
-                  </span>
-                  <h4>{value.name}</h4>
-                  <p>{value.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* BUILT FOR REAL INDUSTRIES */}
-      <section className="why" aria-labelledby="ind-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
-        <div className="why-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div className="why-header">
-            <Reveal>
-              <span className="section-tag">Target Verticals</span>
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 className="section-title" id="ind-title">
-                Built for Real <span>Industries</span>
-              </h2>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="section-desc">
-                Deploying hardware connectivity modules across specialized sectors to gather metrics and secure operations.
-              </p>
-            </Reveal>
-          </div>
-
-          <div className="build-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))' }}>
-            {industriesTeaser.map((ind, i) => (
-              <Reveal delay={i * 100} key={i}>
-                <div className="build-card" style={{ border: ind.isHighlighted ? '1px solid var(--border-bright)' : '1px solid var(--border)', background: ind.isHighlighted ? 'rgba(212, 175, 55, 0.03)' : 'var(--glass-bg)' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                    <h3 style={{ fontSize: '20px', fontWeight: 600, color: 'var(--text-primary)', margin: 0 }}>
-                      {ind.name}
-                    </h3>
-                    {ind.isHighlighted && (
-                      <span style={{ fontSize: '9px', color: 'var(--gold-light)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 600 }}>
-                        ★ Highlighted Vertical
-                      </span>
-                    )}
-                  </div>
-                  <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6', fontWeight: 300 }}>{ind.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="cta-section" aria-labelledby="cta-title" style={{ padding: '80px 0' }}>
+      {/* 09 FINAL CTA */}
+      <section className="cta-section" aria-labelledby="cta-title" style={{ padding: '100px 0', borderTop: '1px solid var(--border)' }}>
         <div className="cta-inner">
           <Reveal>
-            <span className="section-tag">Have a Problem Worth Automating?</span>
+            <span className="section-tag">HAVE A PROBLEM WORTH AUTOMATING?</span>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="section-title" id="cta-title">
@@ -514,16 +585,13 @@ export default function HomeClient() {
           </Reveal>
           <Reveal delay={200}>
             <p className="cta-desc">
-              From prototype devices to complete cloud twin dashboards, tell us what you're trying to build and we'll engineer the system.
+              Tell us what you're trying to build and we'll engineer the system.
             </p>
           </Reveal>
           <Reveal delay={300}>
-            <div className="cta-buttons">
+            <div className="cta-buttons" style={{ display: 'flex', justifyContent: 'center' }}>
               <Link href="/contact" className="btn-primary">
                 Start a Project ➔
-              </Link>
-              <Link href="/contact" className="btn-secondary">
-                Discuss Your Vision
               </Link>
             </div>
           </Reveal>

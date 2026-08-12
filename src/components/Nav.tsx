@@ -9,11 +9,11 @@ export default function Nav() {
   const pathname = usePathname();
 
   const links = [
-    { label: 'Home', path: '/' },
-    { label: 'About', path: '/about' },
-    { label: 'Services', path: '/services' },
+    { label: 'Solutions', path: '/services' },
+    { label: 'Products', path: '/' },
     { label: 'Industries', path: '/industries' },
-    { label: 'Contact', path: '/contact' },
+    { label: 'Technology', path: '/' },
+    { label: 'About', path: '/about' },
   ];
 
   return (
@@ -36,8 +36,8 @@ export default function Nav() {
           </Link>
 
           <ul className="nav-links" role="list">
-            {links.map((link) => (
-              <li key={link.path}>
+            {links.map((link, idx) => (
+              <li key={idx}>
                 <Link href={link.path} className={pathname === link.path ? 'active' : ''}>
                   {link.label}
                 </Link>
@@ -46,7 +46,7 @@ export default function Nav() {
           </ul>
 
           <Link href="/contact" className="nav-cta">
-            Get in Touch
+            Start a Project ➔
           </Link>
 
           <button 
@@ -69,8 +69,8 @@ export default function Nav() {
       <div className={`mobile-overlay-bg ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(false)}></div>
       <div className={`mobile-drawer ${isOpen ? 'open' : ''}`}>
         <ul className="mobile-drawer-links" role="list">
-          {links.map((link) => (
-            <li key={link.path}>
+          {links.map((link, idx) => (
+            <li key={idx}>
               <Link 
                 href={link.path} 
                 onClick={() => setIsOpen(false)}
@@ -87,7 +87,7 @@ export default function Nav() {
               className="nav-cta" 
               style={{ display: 'block', textAlign: 'center', width: '100%' }}
             >
-              Get in Touch
+              Start a Project ➔
             </Link>
           </li>
         </ul>
