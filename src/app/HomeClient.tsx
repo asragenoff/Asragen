@@ -267,7 +267,7 @@ export default function HomeClient() {
       {/* 02 WHY ASRAGEN */}
       <section className="values" aria-labelledby="why-asragen-title" style={{ padding: '80px 0' }}>
         <div className="values-inner">
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+          <div style={{ textAlign: 'left', marginBottom: '50px' }}>
             <Reveal>
               <span className="section-tag">Value Proposition</span>
             </Reveal>
@@ -293,17 +293,17 @@ export default function HomeClient() {
 
       {/* 03 WHAT WE BUILD (COMPACT 2x3 INTERACTIVE GRID) */}
       <section className="build-section" aria-labelledby="build-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+        <div style={{ textAlign: 'left', marginBottom: '40px' }}>
           <Reveal>
             <span className="section-tag">Solutions & Deliverables</span>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="section-title" id="build-title" style={{ margin: '12px 0' }}>
-              WHAT WE <span>BUILD</span>
+              What we <span>build</span>
             </h2>
           </Reveal>
           <Reveal delay={200}>
-            <p className="section-desc" style={{ margin: '0 auto', maxWidth: '640px' }}>
+            <p className="section-desc" style={{ margin: '0', maxWidth: '640px' }}>
               Technology engineered for the physical world.
             </p>
           </Reveal>
@@ -486,7 +486,7 @@ export default function HomeClient() {
       {/* 06 INDUSTRIES */}
       <section className="why" aria-labelledby="ind-title" style={{ padding: '80px 0', borderBottom: '1px solid var(--border)' }}>
         <div className="why-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <div style={{ textAlign: 'left', marginBottom: '40px' }}>
             <Reveal>
               <span className="section-tag">Target Verticals</span>
             </Reveal>
@@ -527,7 +527,7 @@ export default function HomeClient() {
 
       {/* 07 HOW WE BUILD (Vertical steps layout on mobile) */}
       <section className="process-section" aria-labelledby="process-title" style={{ padding: '80px 0' }}>
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+        <div style={{ textAlign: 'left', marginBottom: '48px' }}>
           <Reveal>
             <span className="section-tag">Operational Model</span>
           </Reveal>
@@ -554,7 +554,7 @@ export default function HomeClient() {
       {/* 08 TECHNOLOGY STACK CATEGORIZED */}
       <section className="tech-stack" aria-labelledby="tech-title" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
         <div className="tech-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+          <div style={{ textAlign: 'left', marginBottom: '50px' }}>
             <Reveal>
               <span className="section-tag">Architecture Layers</span>
             </Reveal>
