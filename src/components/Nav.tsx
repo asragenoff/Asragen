@@ -35,9 +35,9 @@ export default function Nav() {
             <svg className="nav-logo-icon" viewBox="0 0 100 100" aria-hidden="true">
               <defs>
                 <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{ stopColor: '#E8C96A' }} />
-                  <stop offset="50%" style={{ stopColor: '#C9A84C' }} />
-                  <stop offset="100%" style={{ stopColor: '#8B6914' }} />
+                  <stop offset="0%" style={{ stopColor: '#b8ff3d' }} />
+                  <stop offset="50%" style={{ stopColor: '#a6e834' }} />
+                  <stop offset="100%" style={{ stopColor: '#88cd2d' }} />
                 </linearGradient>
               </defs>
               <path d="M 51.5 6 C 30 35, 18 65, 5 88 L 18 88 C 28 72, 38 58, 50 53 L 30.5 47 L 51.5 39 L 53.5 61 L 73.5 53 Z" fill="url(#g1)" />
@@ -57,7 +57,7 @@ export default function Nav() {
           </ul>
 
           <Link href="/contact" className="nav-cta">
-            Start a Project ➔
+            Start a project
           </Link>
 
           <button 
@@ -97,7 +97,7 @@ export default function Nav() {
               onClick={() => setIsOpen(false)} 
               className="nav-cta"
             >
-              Start a Project ➔
+              Start a project
             </Link>
           </li>
         </ul>

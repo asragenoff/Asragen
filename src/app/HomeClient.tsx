@@ -150,7 +150,7 @@ export default function HomeClient() {
               </div>
             </Reveal>
             <Reveal delay={150}>
-              <h1 className="hero-title" style={{ fontSize: '56px', lineHeight: '1.1', letterSpacing: '-1px', margin: '0 0 16px 0', color: 'var(--text-primary)' }}>
+              <h1 className="hero-title">
                 BUILD.<br />CONNECT.<br /><span style={{ color: 'var(--gold)' }}>AUTOMATE.</span>
               </h1>
             </Reveal>
@@ -160,7 +160,7 @@ export default function HomeClient() {
               </p>
             </Reveal>
             <Reveal delay={600}>
-              <div className="hero-actions" style={{ display: 'flex', gap: '16px', margin: '0 0 36px 0' }}>
+              <div className="hero-actions">
                 <Link href="/services" className="btn-primary">
                   Explore Solutions
                 </Link>
